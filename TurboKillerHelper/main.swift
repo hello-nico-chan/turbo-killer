@@ -24,21 +24,6 @@ final class TurboKillerHelperService:
     NSObject,
     TurboKillerHelperProtocol
 {
-    func ping(
-        withReply reply: @escaping (String, NSNumber) -> Void
-    ) {
-        let uid = getuid()
-
-        logger.log(
-            "Ping received. uid=\(uid, privacy: .public)"
-        )
-
-        reply(
-            "TurboKillerHelper is alive",
-            NSNumber(value: uid)
-        )
-    }
-    
     func prepareTurboBoostKext(
         sourcePath: String,
         withReply reply: @escaping (NSNumber, String) -> Void

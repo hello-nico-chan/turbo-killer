@@ -75,12 +75,6 @@ struct LegacyKextTurboBoostController: TurboBoostControlling {
     private static let kextName =
         "DisableTurboBoost.64bits.kext"
 
-    private static let installDirectory =
-        "/Library/Application Support/TurboKiller"
-
-    private static let installedKextPath =
-        "\(installDirectory)/\(kextName)"
-
     /// Exact SHA-256 of the known working historical binary.
     private static let expectedExecutableSHA256 =
         "f81f003ccd5827122a41c39bddb78e4ffff37d84718a647dbd5fc3c6a92f987c"

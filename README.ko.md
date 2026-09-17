@@ -1,0 +1,88 @@
+# TurboKiller
+
+[English](README.md) | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md) | [日本語](README.ja.md) | [한국어](README.ko.md)
+
+TurboKiller는 호환되는 Intel Mac에서 Intel Turbo Boost를 제어하기 위한 무료 오픈 소스 macOS 메뉴 막대 유틸리티입니다.
+
+> **현재 상태:** 프리릴리스 버전입니다. 현재 Legacy Kext 백엔드는 System Integrity Protection(SIP)이 활성화된 Intel Mac에서 동작이 확인되었습니다. 더 많은 하드웨어 및 macOS 버전에 대한 호환성 테스트, 정식 서명 및 Apple 공증은 아직 진행 중입니다.
+
+## 요구 사항
+
+- Intel Mac
+- macOS 13 이상
+- System Integrity Protection(SIP)을 비활성화할 필요 없음
+- Apple silicon은 지원하지 않음
+
+## 작동 방식
+
+TurboKiller에는 고정된 과거 버전의 `DisableTurboBoost.64bits.kext`가 포함되어 있습니다.
+
+앱은 `SMAppService`를 사용해 권한이 있는 LaunchDaemon을 등록하고 XPC를 통해 통신합니다. 앱과 Helper 양쪽 모두 코드 서명 요구 사항을 사용하여 상대방의 신원을 검증합니다.
+
+root 권한으로 실행되는 Helper는 다음 작업을 수행합니다.
+
+- 포함된 Kext 실행 파일을 고정된 SHA-256 해시와 비교
+- `/Library/Application Support/TurboKiller`에 설치
+- 설치된 Kext의 소유권을 `root:wheel`로 설정
+- Kext를 로드하여 Turbo Boost 비활성화
+- Kext를 언로드하여 Turbo Boost 복원
+
+Turbo Boost Switcher를 별도로 설치할 필요는 없습니다.
+
+현재 Turbo Boost 상태는 UI 내부 상태가 아니라 `kmutil`을 이용해 실제로 로드된 Kext 상태를 확인하여 판단합니다.
+
+## 최초 실행
+
+새로운 시스템에서는 macOS가 다음 두 구성 요소에 대해 각각 승인을 요구할 수 있습니다.
+
+1. TurboKiller의 권한 있는 백그라운드 Helper
+2. Legacy Turbo Boost 커널 확장
+
+Kext 승인 후 한 번의 재시작이 필요할 수 있습니다.
+
+최초 승인이 완료된 뒤에는 일반적인 Turbo Boost 전환 시 관리자 암호 입력이나 재시작이 필요하지 않습니다.
+
+## 보안
+
+TurboKiller는 권한 인터페이스를 의도적으로 최소화했습니다.
+
+Helper는 임의의 Shell 명령 실행이나 임의의 MSR 접근 기능을 제공하지 않으며, 고정된 Turbo Boost Kext를 준비하고 로드하거나 언로드하는 데 필요한 작업만 제공합니다.
+
+앱과 Helper는 코드 서명 요구 사항을 이용해 서로를 인증합니다.
+
+권한이 필요한 설치를 수행하기 전에 포함된 Kext 실행 파일을 SHA-256으로 다시 검증합니다.
+
+## 프로젝트 구조
+
+`TurboKiller/`
+: 메뉴 막대 앱, UI, 상태 모델, Turbo Boost 컨트롤러 및 Helper 클라이언트.
+
+`TurboKillerHelper/`
+: root 권한으로 실행되며 Kext 설치, 로드 및 언로드를 담당하는 LaunchDaemon.
+
+`TurboKillerHelperProtocol.swift`
+: 앱과 Helper가 공유하는 XPC 인터페이스.
+
+`TurboKiller/Resources/DisableTurboBoost.64bits.kext`
+: 현재 백엔드가 사용하는 고정된 과거 Turbo Boost Kext.
+
+`experiments/TurboKillerKext/`
+: 초기 읽기 전용 Kext 가능성 실험. 정식 제품에는 포함되지 않습니다.
+
+## 빌드
+
+Xcode에서 `TurboKiller.xcodeproj`를 열고 `TurboKiller` target을 빌드합니다.
+
+포함된 과거 Kext는 바이트 단위로 그대로 유지되어야 합니다. 다시 빌드하거나 수정하거나 재서명하지 마십시오.
+
+## 호환성
+
+TurboKiller는 Apple이 더 이상 권장하지 않는 Legacy Kernel Extension 호환 경로에 의존합니다.
+
+따라서 모든 Intel CPU 계열이나 향후 모든 macOS 버전에서의 동작을 보장할 수 없습니다.
+
+## 라이선스
+
+TurboKiller는 GNU General Public License version 2로 배포됩니다.
+
+프로젝트 라이선스는 `LICENSE`, 포함된 제3자 구성 요소의 출처 및 라이선스 정보는 `THIRD_PARTY_NOTICES.md`를 참고하십시오.

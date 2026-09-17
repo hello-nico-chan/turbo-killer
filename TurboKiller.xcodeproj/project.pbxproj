@@ -11,6 +11,8 @@
 		828CF374305BB55E0045D1C0 /* cc.nicotech.TurboKiller.Helper.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = 828CF371305BB4AD0045D1C0 /* cc.nicotech.TurboKiller.Helper.plist */; };
 		828CF379305BB7230045D1C0 /* TurboKillerHelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828CF378305BB7230045D1C0 /* TurboKillerHelperProtocol.swift */; };
 		828CF37A305BB8410045D1C0 /* TurboKillerHelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828CF378305BB7230045D1C0 /* TurboKillerHelperProtocol.swift */; };
+		828CF382305BF5D00045D1C0 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 828CF381305BF5CA0045D1C0 /* README.md */; };
+		828CF384305BF67F0045D1C0 /* THIRD_PARTY_NOTICES.md in Sources */ = {isa = PBXBuildFile; fileRef = 828CF383305BF67C0045D1C0 /* THIRD_PARTY_NOTICES.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		828CF364305BB2770045D1C0 /* TurboKillerHelper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TurboKillerHelper; sourceTree = BUILT_PRODUCTS_DIR; };
 		828CF371305BB4AD0045D1C0 /* cc.nicotech.TurboKiller.Helper.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = cc.nicotech.TurboKiller.Helper.plist; sourceTree = "<group>"; };
 		828CF378305BB7230045D1C0 /* TurboKillerHelperProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurboKillerHelperProtocol.swift; sourceTree = "<group>"; };
+		828CF381305BF5CA0045D1C0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = README.md; sourceTree = "<group>"; };
+		828CF383305BF67C0045D1C0 /* THIRD_PARTY_NOTICES.md */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THIRD_PARTY_NOTICES.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -72,11 +76,6 @@
 		828CF365305BB2770045D1C0 /* TurboKillerHelper */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = TurboKillerHelper;
-			sourceTree = "<group>";
-		};
-		A10000000000000000000002 /* TurboKillerKext */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = TurboKillerKext;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -102,10 +101,11 @@
 		82011CD1305AC37600C90179 = {
 			isa = PBXGroup;
 			children = (
+				828CF383305BF67C0045D1C0 /* THIRD_PARTY_NOTICES.md */,
+				828CF381305BF5CA0045D1C0 /* README.md */,
 				828CF378305BB7230045D1C0 /* TurboKillerHelperProtocol.swift */,
 				828CF371305BB4AD0045D1C0 /* cc.nicotech.TurboKiller.Helper.plist */,
 				82011CDC305AC37600C90179 /* TurboKiller */,
-				A10000000000000000000002 /* TurboKillerKext */,
 				828CF365305BB2770045D1C0 /* TurboKillerHelper */,
 				82011CDB305AC37600C90179 /* Products */,
 			);
@@ -223,6 +223,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				828CF384305BF67F0045D1C0 /* THIRD_PARTY_NOTICES.md in Sources */,
+				828CF382305BF5D00045D1C0 /* README.md in Sources */,
 				828CF37A305BB8410045D1C0 /* TurboKillerHelperProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,7 +283,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = YU79NV6PNR;
+				DEVELOPMENT_TEAM = PPXL64QJ2V;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -345,7 +347,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = YU79NV6PNR;
+				DEVELOPMENT_TEAM = PPXL64QJ2V;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -436,7 +438,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PPXL64QJ2V;
 				ENABLE_HARDENED_RUNTIME = YES;
-				MACOSX_DEPLOYMENT_TARGET = 13.5;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
@@ -450,7 +452,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PPXL64QJ2V;
 				ENABLE_HARDENED_RUNTIME = YES;
-				MACOSX_DEPLOYMENT_TARGET = 13.5;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
