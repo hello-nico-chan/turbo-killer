@@ -7,7 +7,7 @@ import Darwin
 import Combine
 import Foundation
 
-enum HardwareCompatibility {
+enum HardwareCompatibility: Equatable {
     case intelMac
     case appleSilicon
 
@@ -67,14 +67,12 @@ final class TurboKillerModel: ObservableObject {
             return
         }
         
-        guard helperReady else {
+        if !helperReady {
             prepareHelper()
 
             guard helperReady else {
                 return
             }
-
-            return
         }
 
         isBusy = true
@@ -121,6 +119,13 @@ final class TurboKillerModel: ObservableObject {
     }
     
     func prepareHelper() {
+        guard hardware == .intelMac else {
+            helperReady = false
+            requiredAction = nil
+            errorMessage = nil
+            return
+        }
+        
         do {
             let state = try TurboKillerHelperManager.prepare()
 

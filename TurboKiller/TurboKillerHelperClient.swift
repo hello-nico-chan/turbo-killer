@@ -22,6 +22,17 @@ struct TurboKillerHelperClient {
 
     private static let helperCodeSigningRequirement =
         #"identifier "TurboKillerHelper" and anchor apple generic and certificate leaf[subject.OU] = "PPXL64QJ2V""#
+    
+    static func prepareTurboBoostKext(
+        sourcePath: String
+    ) async throws -> TurboKillerHelperCommandResult {
+        try await perform { proxy, reply in
+            proxy.prepareTurboBoostKext(
+                sourcePath: sourcePath,
+                withReply: reply
+            )
+        }
+    }
 
     static func loadTurboBoostKext() async throws
         -> TurboKillerHelperCommandResult

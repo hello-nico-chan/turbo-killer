@@ -17,7 +17,6 @@ enum TurboBoostControlError: LocalizedError {
     case unsupportedMac
     case bundledKextMissing
     case bundledKextModified
-    case administratorCancelled
     case approvalRequired
     case restartRequired
     case commandFailed(String)
@@ -35,9 +34,6 @@ enum TurboBoostControlError: LocalizedError {
 
         case .bundledKextModified:
             return "The bundled Turbo Boost kernel extension does not match the expected version."
-
-        case .administratorCancelled:
-            return "Administrator authorization was cancelled."
 
         case .approvalRequired:
             return "The kernel extension must be approved in System Settings before it can be used."
@@ -110,7 +106,7 @@ struct LegacyKextTurboBoostController: TurboBoostControlling {
             return
         }
 
-        try Self.ensureKextInstalled()
+        try await Self.ensureKextInstalled()
 
         if enabled {
             try await Self.unloadKext()
@@ -145,74 +141,45 @@ struct LegacyKextTurboBoostController: TurboBoostControlling {
             arguments: ["showloaded"]
         )
 
-        if result.output.contains(bundleIdentifier) {
-            return .disabled
-        }
-
-        return .enabled
-    }
-
-    // MARK: - Installation
-
-    private static func ensureKextInstalled() throws {
-        guard
-            let resourceURL = Bundle.main.resourceURL?
-                .appendingPathComponent(kextName),
-            FileManager.default.fileExists(atPath: resourceURL.path)
-        else {
-            throw TurboBoostControlError.bundledKextMissing
-        }
-
-        // Never use a modified/recompiled Kext.
-        try verifyExecutableHash(kextURL: resourceURL)
-
-        let destinationURL =
-            URL(fileURLWithPath: installedKextPath)
-
-        if FileManager.default.fileExists(
-            atPath: destinationURL.path
-        ) {
-            if
-                (try? executableHash(kextURL: destinationURL))
-                == expectedExecutableSHA256,
-                hasRootOwnership(destinationURL)
-            {
-                return
-            }
-        }
-
-        let command = [
-            "/bin/mkdir -p \(shellQuote(installDirectory))",
-            "/bin/rm -rf \(shellQuote(installedKextPath))",
-            "/usr/bin/ditto \(shellQuote(resourceURL.path)) \(shellQuote(installedKextPath))",
-            "/usr/sbin/chown -R root:wheel \(shellQuote(installedKextPath))"
-        ]
-        .joined(separator: " && ")
-
-        let result = try runAsAdministrator(command)
-
         guard result.status == 0 else {
             throw TurboBoostControlError.commandFailed(
                 result.output
             )
         }
 
-        try verifyExecutableHash(kextURL: destinationURL)
+        return result.output.contains(bundleIdentifier)
+            ? .disabled
+            : .enabled
     }
 
-    private static func hasRootOwnership(_ url: URL) -> Bool {
+    // MARK: - Installation
+
+    private static func ensureKextInstalled() async throws {
         guard
-            let attributes = try? FileManager.default
-                .attributesOfItem(atPath: url.path),
-            let owner = attributes[.ownerAccountID] as? NSNumber,
-            let group = attributes[.groupOwnerAccountID] as? NSNumber
+            let resourceURL = Bundle.main.resourceURL?
+                .appendingPathComponent(kextName),
+            FileManager.default.fileExists(
+                atPath: resourceURL.path
+            )
         else {
-            return false
+            throw TurboBoostControlError
+                .bundledKextMissing
         }
 
-        // root:wheel
-        return owner.intValue == 0 &&
-               group.intValue == 0
+        try verifyExecutableHash(
+            kextURL: resourceURL
+        )
+
+        let result =
+            try await TurboKillerHelperClient
+                .prepareTurboBoostKext(
+                    sourcePath: resourceURL.path
+                )
+
+        guard result.status == 0 else {
+            throw TurboBoostControlError
+                .commandFailed(result.output)
+        }
     }
 
     // MARK: - Load / Unload
@@ -340,38 +307,5 @@ struct LegacyKextTurboBoostController: TurboBoostControlling {
             status: process.terminationStatus,
             output: output
         )
-    }
-
-    private static func runAsAdministrator(
-        _ command: String
-    ) throws -> CommandResult {
-        let escapedCommand = command
-            .replacingOccurrences(
-                of: "\\",
-                with: "\\\\"
-            )
-            .replacingOccurrences(
-                of: "\"",
-                with: "\\\""
-            )
-
-        let appleScript =
-            "do shell script \"\(escapedCommand)\" with administrator privileges"
-
-        let result = try run(
-            executable: "/usr/bin/osascript",
-            arguments: ["-e", appleScript]
-        )
-
-        if result.output.contains("(-128)") {
-            throw TurboBoostControlError
-                .administratorCancelled
-        }
-
-        return result
-    }
-
-    private static func shellQuote(_ string: String) -> String {
-        "'" + string.replacingOccurrences(of: "'", with: "'\\''") + "'"
     }
 }

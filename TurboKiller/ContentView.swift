@@ -11,9 +11,6 @@ import SwiftUI
 @MainActor
 struct ContentView: View {
     @StateObject private var model = TurboKillerModel()
-    
-    private let helperCodeSigningRequirement =
-        #"identifier "TurboKillerHelper" and anchor apple generic and certificate leaf[subject.OU] = "PPXL64QJ2V""#
 
     var body: some View {
         VStack(alignment: .leading, spacing: 14) {
