@@ -6,7 +6,6 @@
 //
 
 import AppKit
-import ServiceManagement
 import SwiftUI
 
 @MainActor
@@ -108,73 +107,15 @@ struct ContentView: View {
             .buttonStyle(.borderedProminent)
             .disabled(
                 model.turboBoostStatus == .unavailable ||
-                model.isBusy
+                model.isBusy ||
+                !model.helperReady
             )
 
             Divider()
 
             HStack {
-                Button("Install Helper") {
-                    do {
-                        let service = SMAppService.daemon(
-                            plistName: "cc.nicotech.TurboKiller.Helper.plist"
-                        )
-
-                        try service.register()
-
-                        print("✅ Helper registered")
-                    } catch {
-                        print("❌ Helper registration failed:", error)
-                    }
-                }
-                
                 Spacer()
                 
-                Button("Ping Helper") {
-                    let connection = NSXPCConnection(
-                        machServiceName: "cc.nicotech.TurboKiller.Helper",
-                        options: .privileged
-                    )
-
-                    connection.remoteObjectInterface =
-                        NSXPCInterface(
-                            with: TurboKillerHelperProtocol.self
-                        )
-                    
-                    connection.setCodeSigningRequirement(
-                        helperCodeSigningRequirement
-                    )
-
-                    connection.invalidationHandler = {
-                        print("ℹ️ Helper connection invalidated")
-                    }
-
-                    connection.interruptionHandler = {
-                        print("⚠️ Helper connection interrupted")
-                    }
-
-                    connection.resume()
-
-                    guard let proxy =
-                        connection.remoteObjectProxyWithErrorHandler({ error in
-                            print("❌ XPC error:", error)
-                            connection.invalidate()
-                        }) as? TurboKillerHelperProtocol
-                    else {
-                        print("❌ Could not create helper proxy")
-                        connection.invalidate()
-                        return
-                    }
-
-                    proxy.ping { message, uid in
-                        print("✅ Helper replied:", message)
-                        print("✅ Helper UID:", uid)
-                        connection.invalidate()
-                    }
-                }
-                
-                Spacer()
-
                 Button("Quit TurboKiller") {
                     NSApplication.shared.terminate(nil)
                 }
@@ -184,6 +125,7 @@ struct ContentView: View {
         .padding(16)
         .frame(width: 340)
         .task {
+            model.prepareHelper()
             await model.refreshStatus()
         }
     }
@@ -195,6 +137,43 @@ struct ContentView: View {
         _ action: TurboKillerRequiredAction
     ) -> some View {
         switch action {
+        case .approvePrivilegedHelper:
+            VStack(alignment: .leading, spacing: 8) {
+                HStack(alignment: .top, spacing: 8) {
+                    Image(systemName: "gearshape.2.fill")
+                        .foregroundStyle(.orange)
+
+                    VStack(alignment: .leading, spacing: 3) {
+                        Text("Background helper approval required")
+                            .font(.caption.weight(.semibold))
+
+                        Text(
+                            "TurboKiller needs permission to run its privileged helper " +
+                            "in the background. Allow TurboKiller in System Settings, " +
+                            "then return here."
+                        )
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                    }
+                }
+
+                HStack {
+                    Button("Open System Settings") {
+                        TurboKillerHelperManager.openSystemSettings()
+                    }
+
+                    Button("Check Again") {
+                        model.prepareHelper()
+                    }
+                }
+                .controlSize(.small)
+            }
+            .padding(10)
+            .background(
+                RoundedRectangle(cornerRadius: 8)
+                    .fill(.orange.opacity(0.08))
+            )
         case .approveKernelExtension:
             VStack(alignment: .leading, spacing: 8) {
                 HStack(alignment: .top, spacing: 8) {

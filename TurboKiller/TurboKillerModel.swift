@@ -30,6 +30,7 @@ enum HardwareCompatibility {
 }
 
 enum TurboKillerRequiredAction: Equatable {
+    case approvePrivilegedHelper
     case approveKernelExtension
     case restartRequired
 }
@@ -42,6 +43,7 @@ final class TurboKillerModel: ObservableObject {
     @Published private(set) var errorMessage: String?
     @Published private(set) var requiredAction: TurboKillerRequiredAction?
     @Published private(set) var isBusy = false
+    @Published private(set) var helperReady = false
 
     private let controller: any TurboBoostControlling
 
@@ -62,6 +64,16 @@ final class TurboKillerModel: ObservableObject {
 
     func toggleTurboBoost() async {
         guard !isBusy else {
+            return
+        }
+        
+        guard helperReady else {
+            prepareHelper()
+
+            guard helperReady else {
+                return
+            }
+
             return
         }
 
@@ -104,6 +116,33 @@ final class TurboKillerModel: ObservableObject {
             requiredAction = .restartRequired
 
         default:
+            errorMessage = error.localizedDescription
+        }
+    }
+    
+    func prepareHelper() {
+        do {
+            let state = try TurboKillerHelperManager.prepare()
+
+            switch state {
+            case .ready:
+                helperReady = true
+
+                if requiredAction == .approvePrivilegedHelper {
+                    requiredAction = nil
+                }
+
+            case .requiresApproval:
+                helperReady = false
+                requiredAction = .approvePrivilegedHelper
+
+            case .unavailable:
+                helperReady = false
+                errorMessage =
+                    "The TurboKiller privileged helper is unavailable."
+            }
+        } catch {
+            helperReady = false
             errorMessage = error.localizedDescription
         }
     }
