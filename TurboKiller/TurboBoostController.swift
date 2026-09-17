@@ -113,9 +113,9 @@ struct LegacyKextTurboBoostController: TurboBoostControlling {
         try Self.ensureKextInstalled()
 
         if enabled {
-            try Self.unloadKext()
+            try await Self.unloadKext()
         } else {
-            try Self.loadKext()
+            try await Self.loadKext()
         }
 
         // Verify the requested state actually took effect.
@@ -217,43 +217,44 @@ struct LegacyKextTurboBoostController: TurboBoostControlling {
 
     // MARK: - Load / Unload
 
-    private static func loadKext() throws {
-        let command =
-            "/usr/bin/kextutil -v \(shellQuote(installedKextPath)) 2>&1"
+    private static func loadKext() async throws {
+        let result =
+            try await TurboKillerHelperClient
+                .loadTurboBoostKext()
 
-        let result = try runAsAdministrator(command)
         let output = result.output
 
         if output.localizedCaseInsensitiveContains(
             "not approved to load"
         ) {
-            throw TurboBoostControlError.approvalRequired
+            throw TurboBoostControlError
+                .approvalRequired
         }
 
         if output.localizedCaseInsensitiveContains(
             "requires a reboot"
         ) {
-            throw TurboBoostControlError.restartRequired
+            throw TurboBoostControlError
+                .restartRequired
         }
 
         guard result.status == 0 else {
-            throw TurboBoostControlError.commandFailed(output)
+            throw TurboBoostControlError
+                .commandFailed(output)
         }
     }
 
-    private static func unloadKext() throws {
-        let command =
-            "/sbin/kextunload -v \(shellQuote(installedKextPath)) 2>&1"
-
-        let result = try runAsAdministrator(command)
+    private static func unloadKext() async throws {
+        let result =
+            try await TurboKillerHelperClient
+                .unloadTurboBoostKext()
 
         guard result.status == 0 else {
-            throw TurboBoostControlError.commandFailed(
-                result.output
-            )
+            throw TurboBoostControlError
+                .commandFailed(result.output)
         }
     }
-
+    
     // MARK: - Hash verification
 
     private static func verifyExecutableHash(
