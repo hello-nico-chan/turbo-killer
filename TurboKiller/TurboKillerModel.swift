@@ -37,7 +37,7 @@ final class TurboKillerModel: ObservableObject {
 
     init() {
         hardware = .current
-        controller = UnavailableTurboBoostController()
+        controller = LegacyKextTurboBoostController()
     }
 
     func refreshStatus() async {
