@@ -6,11 +6,15 @@
 //
 
 import AppKit
+import ServiceManagement
 import SwiftUI
 
 @MainActor
 struct ContentView: View {
     @StateObject private var model = TurboKillerModel()
+    
+    private let helperCodeSigningRequirement =
+        #"identifier "TurboKillerHelper" and anchor apple generic and certificate leaf[subject.OU] = "PPXL64QJ2V""#
 
     var body: some View {
         VStack(alignment: .leading, spacing: 14) {
@@ -110,6 +114,65 @@ struct ContentView: View {
             Divider()
 
             HStack {
+                Button("Install Helper") {
+                    do {
+                        let service = SMAppService.daemon(
+                            plistName: "cc.nicotech.TurboKiller.Helper.plist"
+                        )
+
+                        try service.register()
+
+                        print("✅ Helper registered")
+                    } catch {
+                        print("❌ Helper registration failed:", error)
+                    }
+                }
+                
+                Spacer()
+                
+                Button("Ping Helper") {
+                    let connection = NSXPCConnection(
+                        machServiceName: "cc.nicotech.TurboKiller.Helper",
+                        options: .privileged
+                    )
+
+                    connection.remoteObjectInterface =
+                        NSXPCInterface(
+                            with: TurboKillerHelperProtocol.self
+                        )
+                    
+                    connection.setCodeSigningRequirement(
+                        helperCodeSigningRequirement
+                    )
+
+                    connection.invalidationHandler = {
+                        print("ℹ️ Helper connection invalidated")
+                    }
+
+                    connection.interruptionHandler = {
+                        print("⚠️ Helper connection interrupted")
+                    }
+
+                    connection.resume()
+
+                    guard let proxy =
+                        connection.remoteObjectProxyWithErrorHandler({ error in
+                            print("❌ XPC error:", error)
+                            connection.invalidate()
+                        }) as? TurboKillerHelperProtocol
+                    else {
+                        print("❌ Could not create helper proxy")
+                        connection.invalidate()
+                        return
+                    }
+
+                    proxy.ping { message, uid in
+                        print("✅ Helper replied:", message)
+                        print("✅ Helper UID:", uid)
+                        connection.invalidate()
+                    }
+                }
+                
                 Spacer()
 
                 Button("Quit TurboKiller") {
