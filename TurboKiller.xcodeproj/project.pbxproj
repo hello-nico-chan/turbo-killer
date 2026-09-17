@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXFileReference section */
+		82011CDA305AC37600C90179 /* TurboKiller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TurboKiller.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A10000000000000000000001 /* TurboKillerKext.kext */ = {isa = PBXFileReference; explicitFileType = "wrapper.kernel-extension"; includeInIndex = 0; path = TurboKillerKext.kext; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
 		A1000000000000000000000A /* Exceptions for "TurboKillerKext" folder in "TurboKillerKext" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
@@ -16,12 +21,12 @@
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
-/* Begin PBXFileReference section */
-		A10000000000000000000001 /* TurboKillerKext.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.kernel-extension; includeInIndex = 0; path = TurboKillerKext.kext; sourceTree = BUILT_PRODUCTS_DIR; };
-		82011CDA305AC37600C90179 /* TurboKiller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TurboKiller.app; sourceTree = BUILT_PRODUCTS_DIR; };
-/* End PBXFileReference section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		82011CDC305AC37600C90179 /* TurboKiller */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = TurboKiller;
+			sourceTree = "<group>";
+		};
 		A10000000000000000000002 /* TurboKillerKext */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -30,22 +35,17 @@
 			path = TurboKillerKext;
 			sourceTree = "<group>";
 		};
-		82011CDC305AC37600C90179 /* TurboKiller */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = TurboKiller;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A10000000000000000000004 /* Frameworks */ = {
+		82011CD7305AC37600C90179 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		82011CD7305AC37600C90179 /* Frameworks */ = {
+		A10000000000000000000004 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -76,28 +76,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A10000000000000000000006 /* TurboKillerKext */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A10000000000000000000009 /* Build configuration list for PBXNativeTarget "TurboKillerKext" */;
-			buildPhases = (
-				A10000000000000000000003 /* Sources */,
-				A10000000000000000000004 /* Frameworks */,
-				A10000000000000000000005 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				A10000000000000000000002 /* TurboKillerKext */,
-			);
-			name = TurboKillerKext;
-			packageProductDependencies = (
-			);
-			productName = TurboKillerKext;
-			productReference = A10000000000000000000001 /* TurboKillerKext.kext */;
-			productType = "com.apple.product-type.kernel-extension";
-		};
 		82011CD9305AC37600C90179 /* TurboKiller */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 82011CE5305AC37800C90179 /* Build configuration list for PBXNativeTarget "TurboKiller" */;
@@ -120,6 +98,28 @@
 			productReference = 82011CDA305AC37600C90179 /* TurboKiller.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A10000000000000000000006 /* TurboKillerKext */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A10000000000000000000009 /* Build configuration list for PBXNativeTarget "TurboKillerKext" */;
+			buildPhases = (
+				A10000000000000000000003 /* Sources */,
+				A10000000000000000000004 /* Frameworks */,
+				A10000000000000000000005 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				A10000000000000000000002 /* TurboKillerKext */,
+			);
+			name = TurboKillerKext;
+			packageProductDependencies = (
+			);
+			productName = TurboKillerKext;
+			productReference = A10000000000000000000001 /* TurboKillerKext.kext */;
+			productType = "com.apple.product-type.kernel-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -130,10 +130,10 @@
 				LastSwiftUpdateCheck = 2650;
 				LastUpgradeCheck = 2650;
 				TargetAttributes = {
-					A10000000000000000000006 = {
+					82011CD9305AC37600C90179 = {
 						CreatedOnToolsVersion = 26.5;
 					};
-					82011CD9305AC37600C90179 = {
+					A10000000000000000000006 = {
 						CreatedOnToolsVersion = 26.5;
 					};
 				};
@@ -159,14 +159,14 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		A10000000000000000000005 /* Resources */ = {
+		82011CD8305AC37600C90179 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		82011CD8305AC37600C90179 /* Resources */ = {
+		A10000000000000000000005 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -176,14 +176,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		A10000000000000000000003 /* Sources */ = {
+		82011CD6305AC37600C90179 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		82011CD6305AC37600C90179 /* Sources */ = {
+		A10000000000000000000003 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -193,46 +193,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		A10000000000000000000007 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = x86_64;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YU79NV6PNR;
-				INFOPLIST_FILE = TurboKillerKext/Info.plist;
-				KERNEL_EXTENSION_API_ONLY = YES;
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MODULE_NAME = cc.nicotech.TurboKillerKext;
-				MODULE_START = TurboKillerKext_start;
-				MODULE_STOP = TurboKillerKext_stop;
-				MODULE_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = cc.nicotech.TurboKiller.Kext;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		A10000000000000000000008 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = x86_64;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YU79NV6PNR;
-				INFOPLIST_FILE = TurboKillerKext/Info.plist;
-				KERNEL_EXTENSION_API_ONLY = YES;
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MODULE_NAME = cc.nicotech.TurboKillerKext;
-				MODULE_START = TurboKillerKext_start;
-				MODULE_STOP = TurboKillerKext_stop;
-				MODULE_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = cc.nicotech.TurboKiller.Kext;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 		82011CE3305AC37800C90179 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -361,11 +321,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YU79NV6PNR;
-				ENABLE_APP_SANDBOX = YES;
+				DEVELOPMENT_TEAM = PPXL64QJ2V;
+				ENABLE_APP_SANDBOX = NO;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
-				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -394,11 +353,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YU79NV6PNR;
-				ENABLE_APP_SANDBOX = YES;
+				DEVELOPMENT_TEAM = PPXL64QJ2V;
+				ENABLE_APP_SANDBOX = NO;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
-				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -419,18 +377,49 @@
 			};
 			name = Release;
 		};
+		A10000000000000000000007 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = x86_64;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YU79NV6PNR;
+				INFOPLIST_FILE = TurboKillerKext/Info.plist;
+				KERNEL_EXTENSION_API_ONLY = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MODULE_NAME = cc.nicotech.TurboKillerKext;
+				MODULE_START = TurboKillerKext_start;
+				MODULE_STOP = TurboKillerKext_stop;
+				MODULE_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = cc.nicotech.TurboKiller.Kext;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A10000000000000000000008 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = x86_64;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YU79NV6PNR;
+				INFOPLIST_FILE = TurboKillerKext/Info.plist;
+				KERNEL_EXTENSION_API_ONLY = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MODULE_NAME = cc.nicotech.TurboKillerKext;
+				MODULE_START = TurboKillerKext_start;
+				MODULE_STOP = TurboKillerKext_stop;
+				MODULE_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = cc.nicotech.TurboKiller.Kext;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A10000000000000000000009 /* Build configuration list for PBXNativeTarget "TurboKillerKext" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A10000000000000000000007 /* Debug */,
-				A10000000000000000000008 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		82011CD5305AC37600C90179 /* Build configuration list for PBXProject "TurboKiller" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -445,6 +434,15 @@
 			buildConfigurations = (
 				82011CE6305AC37800C90179 /* Debug */,
 				82011CE7305AC37800C90179 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A10000000000000000000009 /* Build configuration list for PBXNativeTarget "TurboKillerKext" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A10000000000000000000007 /* Debug */,
+				A10000000000000000000008 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
