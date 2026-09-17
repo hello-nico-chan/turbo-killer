@@ -23,15 +23,25 @@ enum HardwareCompatibility {
             0
         )
 
-        return result == 0 && arm64Capability == 1 ? .appleSilicon : .intelMac
+        return result == 0 && arm64Capability == 1
+            ? .appleSilicon
+            : .intelMac
     }
+}
+
+enum TurboKillerRequiredAction: Equatable {
+    case approveKernelExtension
+    case restartRequired
 }
 
 @MainActor
 final class TurboKillerModel: ObservableObject {
     let hardware: HardwareCompatibility
+
     @Published private(set) var turboBoostStatus: TurboBoostStatus = .unavailable
     @Published private(set) var errorMessage: String?
+    @Published private(set) var requiredAction: TurboKillerRequiredAction?
+    @Published private(set) var isBusy = false
 
     private let controller: any TurboBoostControlling
 
@@ -51,18 +61,49 @@ final class TurboKillerModel: ObservableObject {
     }
 
     func toggleTurboBoost() async {
+        guard !isBusy else {
+            return
+        }
+
+        isBusy = true
+        errorMessage = nil
+        requiredAction = nil
+
+        defer {
+            isBusy = false
+        }
+
         do {
             switch turboBoostStatus {
             case .enabled:
                 try await controller.setTurboBoostEnabled(false)
+
             case .disabled:
                 try await controller.setTurboBoostEnabled(true)
+
             case .unavailable:
                 throw TurboBoostControlError.notConnected
             }
 
-            await refreshStatus()
+            turboBoostStatus = try await controller.currentStatus()
+
+        } catch let error as TurboBoostControlError {
+            handleControlError(error)
+
         } catch {
+            errorMessage = error.localizedDescription
+        }
+    }
+
+    private func handleControlError(_ error: TurboBoostControlError) {
+        switch error {
+        case .approvalRequired:
+            requiredAction = .approveKernelExtension
+
+        case .restartRequired:
+            requiredAction = .restartRequired
+
+        default:
             errorMessage = error.localizedDescription
         }
     }
