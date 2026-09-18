@@ -43,15 +43,10 @@ struct TurboKillerHelperManager {
         case .requiresApproval:
             return .requiresApproval
 
-        case .notFound:
-            throw TurboKillerHelperManagerError.helperNotFound
-
-        case .notRegistered:
+        case .notFound, .notRegistered:
             do {
                 try service.register()
             } catch {
-                // register() may throw while macOS is waiting
-                // for the user to approve the LaunchDaemon.
                 switch service.status {
                 case .enabled:
                     return .ready
@@ -59,7 +54,13 @@ struct TurboKillerHelperManager {
                 case .requiresApproval:
                     return .requiresApproval
 
-                default:
+                case .notFound, .notRegistered:
+                    throw TurboKillerHelperManagerError
+                        .registrationFailed(
+                            error.localizedDescription
+                        )
+
+                @unknown default:
                     throw TurboKillerHelperManagerError
                         .registrationFailed(
                             error.localizedDescription
@@ -74,7 +75,10 @@ struct TurboKillerHelperManager {
             case .requiresApproval:
                 return .requiresApproval
 
-            default:
+            case .notFound, .notRegistered:
+                return .unavailable
+
+            @unknown default:
                 return .unavailable
             }
 
