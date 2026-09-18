@@ -50,13 +50,6 @@ After that, macOS may still separately ask you to approve:
 
 A restart may be required after approving the kernel extension.
 
-On a clean system, macOS may require approval for two separate components:
-
-1. TurboKiller's privileged background helper.
-2. The legacy Turbo Boost kernel extension.
-
-macOS may require one restart after the kernel extension is approved.
-
 After the helper and Kext have been approved, normal Turbo Boost switching does not require an administrator password or a restart.
 
 ## Security

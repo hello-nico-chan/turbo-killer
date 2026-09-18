@@ -50,13 +50,6 @@ Turbo Boost 的目前狀態會透過 `kmutil` 查詢實際載入的 Kext 狀態�
 
 允許核心延伸模組後，系統可能要求重新啟動一次。
 
-在全新的系統上，macOS 可能會分別要求允許：
-
-1. TurboKiller 的背景特權 Helper；
-2. Legacy Turbo Boost 核心延伸模組。
-
-允許核心延伸模組後，macOS 可能要求重新啟動一次。
-
 完成首次允許後，日常停用或恢復 Turbo Boost 不需要重複輸入管理員密碼，也不需要重新啟動。
 
 ## 安全設計

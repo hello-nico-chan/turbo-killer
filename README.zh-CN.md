@@ -50,13 +50,6 @@ Turbo Boost 的当前状态通过 `kmutil` 查询实际加载的 Kext 状态确�
 
 批准内核扩展后，系统可能要求重启一次。
 
-在一台全新的系统上，macOS 可能会分别要求批准：
-
-1. TurboKiller 的后台特权 Helper；
-2. Legacy Turbo Boost 内核扩展。
-
-批准内核扩展后，macOS 可能要求重启一次。
-
 完成首次批准后，日常关闭和恢复 Turbo Boost 不需要重复输入管理员密码，也不需要重启。
 
 ## 安全设计
