@@ -166,9 +166,7 @@ struct LegacyKextTurboBoostController: TurboBoostControlling {
 
         let result =
             try await TurboKillerHelperClient
-                .prepareTurboBoostKext(
-                    sourcePath: resourceURL.path
-                )
+                .prepareTurboBoostKext()
 
         guard result.status == 0 else {
             throw TurboBoostControlError

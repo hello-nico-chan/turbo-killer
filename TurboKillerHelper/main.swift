@@ -25,15 +25,16 @@ final class TurboKillerHelperService:
     TurboKillerHelperProtocol
 {
     func prepareTurboBoostKext(
-        sourcePath: String,
         withReply reply: @escaping (NSNumber, String) -> Void
     ) {
         logger.log("Preparing Turbo Boost kext")
 
-        let sourceURL = URL(fileURLWithPath: sourcePath)
-        let destinationURL = URL(fileURLWithPath: installedKextPath)
+        let destinationURL =
+            URL(fileURLWithPath: installedKextPath)
 
         do {
+            let sourceURL = try bundledKextURL()
+
             guard
                 FileManager.default.fileExists(
                     atPath: sourceURL.path
@@ -260,6 +261,46 @@ final class TurboKillerHelperService:
 
         return owner.intValue == 0 &&
                group.intValue == 0
+    }
+
+    private func bundledKextURL() throws -> URL {
+        var size: UInt32 = 0
+        _ = _NSGetExecutablePath(nil, &size)
+
+        var buffer = [CChar](
+            repeating: 0,
+            count: Int(size)
+        )
+
+        guard _NSGetExecutablePath(&buffer, &size) == 0 else {
+            throw NSError(
+                domain: "TurboKillerHelper",
+                code: 1,
+                userInfo: [
+                    NSLocalizedDescriptionKey:
+                        "Unable to resolve the helper executable path."
+                ]
+            )
+        }
+
+        let helperURL = URL(
+            fileURLWithPath: String(cString: buffer)
+        )
+        .resolvingSymlinksInPath()
+
+        let contentsURL = helperURL
+            .deletingLastPathComponent() // MacOS
+            .deletingLastPathComponent() // Contents
+
+        return contentsURL
+            .appendingPathComponent(
+                "Resources",
+                isDirectory: true
+            )
+            .appendingPathComponent(
+                "DisableTurboBoost.64bits.kext",
+                isDirectory: true
+            )
     }
 }
 

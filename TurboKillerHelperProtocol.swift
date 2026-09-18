@@ -2,7 +2,6 @@ import Foundation
 
 @objc protocol TurboKillerHelperProtocol {
     func prepareTurboBoostKext(
-        sourcePath: String,
         withReply reply: @escaping (NSNumber, String) -> Void
     )
 
