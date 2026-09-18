@@ -4,7 +4,7 @@
 
 TurboKiller는 호환되는 Intel Mac에서 Intel Turbo Boost를 제어하기 위한 무료 오픈 소스 macOS 메뉴 막대 유틸리티입니다.
 
-> **현재 상태:** 프리릴리스 버전입니다. 현재 Legacy Kext 백엔드는 System Integrity Protection(SIP)이 활성화된 Intel Mac에서 동작이 확인되었습니다. 더 많은 하드웨어 및 macOS 버전에 대한 호환성 테스트는 계속 진행 중입니다.
+> **현재 상태:** 현재 Legacy Kext 백엔드는 System Integrity Protection(SIP)이 활성화된 Intel Mac에서 동작이 확인되었습니다. 더 넓은 하드웨어 및 macOS 버전과의 호환성은 보장되지 않습니다.
 >
 > TurboKiller 본체와 권한이 있는 Helper는 Developer ID로 서명되어 있습니다. 다만 현재 릴리스에는 과거의 서명되지 않은 커널 확장이 포함되어 있으며, Apple 공증 서비스가 이 구성 요소를 거부하기 때문에 현재 릴리스는 Apple notarization을 완료할 수 없습니다.
 
@@ -13,7 +13,6 @@ TurboKiller는 호환되는 Intel Mac에서 Intel Turbo Boost를 제어하기 �
 - Intel Mac
 - macOS 13 이상
 - System Integrity Protection(SIP)을 비활성화할 필요 없음
-- Apple silicon은 지원하지 않음
 
 ## 작동 방식
 
@@ -45,7 +44,7 @@ Turbo Boost Switcher를 별도로 설치할 필요는 없습니다.
 
 그 후 macOS가 다음 구성 요소에 대해 별도로 승인을 요구할 수 있습니다.
 
-1. TurboKiller의 권한 있는 백그라운드 Helper
+1. TurboKiller의 권한 있는 백그라운드 Helper. **시스템 설정 → 일반 → 로그인 항목 및 확장 프로그램 → TurboKiller 백그라운드 실행 허용**에서 승인합니다
 2. Legacy Turbo Boost 커널 확장
 
 커널 확장을 승인한 뒤 한 번 재시작해야 할 수 있습니다.
@@ -75,9 +74,6 @@ Helper는 임의의 Shell 명령 실행이나 임의의 MSR 접근 기능을 제
 
 `TurboKiller/Resources/DisableTurboBoost.64bits.kext`
 : 현재 백엔드가 사용하는 고정된 과거 Turbo Boost Kext.
-
-`experiments/TurboKillerKext/`
-: 초기 읽기 전용 Kext 가능성 실험. 정식 제품에는 포함되지 않습니다.
 
 ## 빌드
 

@@ -4,7 +4,7 @@
 
 TurboKiller 是一款免费、开源的 macOS 菜单栏工具，用于在兼容的 Intel Mac 上控制 Intel Turbo Boost。
 
-> **当前状态：** 预发布版本。当前使用的 Legacy Kext 后端已经在一台开启系统完整性保护（SIP）的 Intel Mac 上验证可用。更多硬件与 macOS 版本兼容性测试仍在进行中。
+> **当前状态：** 当前使用的 Legacy Kext 后端已经在一台开启系统完整性保护（SIP）的 Intel Mac 上验证可用。更广泛的硬件与 macOS 版本兼容性无法保证。
 >
 > TurboKiller 主程序和特权 Helper 均使用 Developer ID 签名。但由于当前版本包含一份历史遗留的未签名内核扩展，Apple 公证服务会拒绝该组件，因此当前版本无法完成 Apple notarization。
 
@@ -13,7 +13,6 @@ TurboKiller 是一款免费、开源的 macOS 菜单栏工具，用于在兼容�
 - Intel Mac
 - macOS 13 或更高版本
 - 无需关闭系统完整性保护（SIP）
-- 不支持 Apple 芯片 Mac
 
 ## 工作原理
 
@@ -45,7 +44,7 @@ Turbo Boost 的当前状态通过 `kmutil` 查询实际加载的 Kext 状态确�
 
 之后 macOS 仍可能分别要求批准：
 
-1. TurboKiller 的后台特权 Helper；
+1. TurboKiller 的后台特权 Helper：请在 **系统设置 → 通用 → 登录项与扩展 → 允许 TurboKiller 在后台运行** 中批准；
 2. Legacy Turbo Boost 内核扩展。
 
 批准内核扩展后，系统可能要求重启一次。
@@ -75,9 +74,6 @@ Helper 不提供执行任意 Shell 命令或访问任意 MSR 的能力，仅提�
 
 `TurboKiller/Resources/DisableTurboBoost.64bits.kext`
 : 当前后端使用的固定历史版本 Turbo Boost Kext。
-
-`experiments/TurboKillerKext/`
-: 早期只读 Kext 可行性实验，不属于正式发布产品。
 
 ## 构建
 

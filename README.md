@@ -4,7 +4,7 @@
 
 TurboKiller is a free and open-source macOS menu bar utility for controlling Intel Turbo Boost on compatible Intel Macs.
 
-> **Status:** Pre-release. The current legacy Kext backend has been validated on an Intel Mac with System Integrity Protection enabled. Broader hardware and macOS compatibility testing are still in progress.
+> **Status:** The current legacy Kext backend has been validated on an Intel Mac with System Integrity Protection enabled. Broader hardware and macOS compatibility cannot be guaranteed.
 >
 > TurboKiller and its privileged helper are Developer ID signed. However, the current release is not Apple-notarized because it includes a historical unsigned kernel extension that Apple's notary service rejects.
 
@@ -13,7 +13,6 @@ TurboKiller is a free and open-source macOS menu bar utility for controlling Int
 - Intel Mac
 - macOS 13 or later
 - System Integrity Protection may remain enabled
-- Apple silicon is not supported
 
 ## How it works
 
@@ -45,7 +44,7 @@ If this happens:
 
 After that, macOS may still separately ask you to approve:
 
-1. TurboKiller's privileged background helper.
+1. TurboKiller's privileged background helper. Open **System Settings → General → Login Items & Extensions → allow TurboKiller to run in the background**.
 2. The legacy Turbo Boost kernel extension.
 
 A restart may be required after approving the kernel extension.
@@ -75,9 +74,6 @@ The bundled Kext executable is verified using SHA-256 before privileged installa
 
 `TurboKiller/Resources/DisableTurboBoost.64bits.kext`
 : Pinned historical Turbo Boost Kext used by the current backend.
-
-`experiments/TurboKillerKext/`
-: Earlier read-only Kext feasibility experiment. It is not part of the shipping product.
 
 ## Building
 
