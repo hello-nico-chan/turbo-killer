@@ -84,24 +84,41 @@ final class TurboKillerModel: ObservableObject {
         }
 
         do {
-            switch turboBoostStatus {
-            case .enabled:
-                try await controller.setTurboBoostEnabled(false)
-
-            case .disabled:
-                try await controller.setTurboBoostEnabled(true)
-
-            case .unavailable:
-                throw TurboBoostControlError.notConnected
-            }
-
-            turboBoostStatus = try await controller.currentStatus()
+            try await performToggle()
 
         } catch let error as TurboBoostControlError {
             handleControlError(error)
 
         } catch {
-            errorMessage = error.localizedDescription
+            // The registered helper may belong to an older copy of
+            // TurboKiller. Re-register the helper from the current app
+            // bundle and retry once.
+            do {
+                let state =
+                    try await TurboKillerHelperManager.repair()
+
+                switch state {
+                case .ready:
+                    helperReady = true
+                    try await performToggle()
+
+                case .requiresApproval:
+                    helperReady = false
+                    requiredAction = .approvePrivilegedHelper
+
+                case .unavailable:
+                    helperReady = false
+                    errorMessage =
+                        "The TurboKiller privileged helper is unavailable."
+                }
+
+            } catch let controlError as TurboBoostControlError {
+                handleControlError(controlError)
+
+            } catch {
+                helperReady = false
+                errorMessage = error.localizedDescription
+            }
         }
     }
 
@@ -116,6 +133,21 @@ final class TurboKillerModel: ObservableObject {
         default:
             errorMessage = error.localizedDescription
         }
+    }
+    
+    private func performToggle() async throws {
+        switch turboBoostStatus {
+        case .enabled:
+            try await controller.setTurboBoostEnabled(false)
+
+        case .disabled:
+            try await controller.setTurboBoostEnabled(true)
+
+        case .unavailable:
+            throw TurboBoostControlError.notConnected
+        }
+
+        turboBoostStatus = try await controller.currentStatus()
     }
     
     func prepareHelper() {

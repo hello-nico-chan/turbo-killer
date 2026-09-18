@@ -83,6 +83,76 @@ struct TurboKillerHelperManager {
         }
     }
 
+    static func repair() async throws -> TurboKillerHelperState {
+        let service = service
+
+        if service.status != .notRegistered {
+            do {
+                try await service.unregister()
+            } catch {
+                if service.status != .notRegistered {
+                    throw TurboKillerHelperManagerError
+                        .registrationFailed(
+                            "Could not unregister the previous privileged helper: \(error.localizedDescription)"
+                        )
+                }
+            }
+        }
+
+        // SMAppService may reject an immediate re-registration
+        // even after unregister() has completed.
+        //
+        // Give Service Management time to finish removing the
+        // previous LaunchDaemon before registering the new one.
+        try await Task<Never, Never>.sleep(
+            nanoseconds: 2_000_000_000
+        )
+
+        do {
+            try service.register()
+        } catch {
+            switch service.status {
+            case .enabled:
+                return .ready
+
+            case .requiresApproval:
+                return .requiresApproval
+
+            case .notFound:
+                throw TurboKillerHelperManagerError.helperNotFound
+
+            case .notRegistered:
+                throw TurboKillerHelperManagerError
+                    .registrationFailed(
+                        error.localizedDescription
+                    )
+
+            @unknown default:
+                throw TurboKillerHelperManagerError
+                    .registrationFailed(
+                        error.localizedDescription
+                    )
+            }
+        }
+
+        switch service.status {
+        case .enabled:
+            return .ready
+
+        case .requiresApproval:
+            return .requiresApproval
+
+        case .notFound:
+            throw TurboKillerHelperManagerError.helperNotFound
+
+        case .notRegistered:
+            return .unavailable
+
+        @unknown default:
+            return .unavailable
+        }
+    }
+
     static func openSystemSettings() {
         SMAppService.openSystemSettingsLoginItems()
     }
