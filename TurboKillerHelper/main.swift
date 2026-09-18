@@ -24,6 +24,12 @@ final class TurboKillerHelperService:
     NSObject,
     TurboKillerHelperProtocol
 {
+    func healthCheck(
+        withReply reply: @escaping (NSNumber, String) -> Void
+    ) {
+        reply(NSNumber(value: 0), "")
+    }
+    
     func prepareTurboBoostKext(
         withReply reply: @escaping (NSNumber, String) -> Void
     ) {

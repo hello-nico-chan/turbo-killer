@@ -122,7 +122,7 @@ struct ContentView: View {
         .padding(16)
         .frame(width: 340)
         .task {
-            model.prepareHelper()
+            await model.prepareHelper()
             await model.refreshStatus()
         }
     }
@@ -161,7 +161,9 @@ struct ContentView: View {
                     }
 
                     Button("Check Again") {
-                        model.prepareHelper()
+                        Task {
+                            await model.prepareHelper()
+                        }
                     }
                 }
                 .controlSize(.small)

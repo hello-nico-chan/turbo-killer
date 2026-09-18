@@ -1,6 +1,10 @@
 import Foundation
 
 @objc protocol TurboKillerHelperProtocol {
+    func healthCheck(
+        withReply reply: @escaping (NSNumber, String) -> Void
+    )
+
     func prepareTurboBoostKext(
         withReply reply: @escaping (NSNumber, String) -> Void
     )

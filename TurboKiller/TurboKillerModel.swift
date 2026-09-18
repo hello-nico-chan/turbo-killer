@@ -68,7 +68,7 @@ final class TurboKillerModel: ObservableObject {
         }
         
         if !helperReady {
-            prepareHelper()
+            await prepareHelper()
 
             guard helperReady else {
                 return
@@ -150,34 +150,75 @@ final class TurboKillerModel: ObservableObject {
         turboBoostStatus = try await controller.currentStatus()
     }
     
-    func prepareHelper() {
+    func prepareHelper() async {
         guard hardware == .intelMac else {
             helperReady = false
             requiredAction = nil
             errorMessage = nil
             return
         }
-        
+
+        helperReady = false
+
         do {
-            let state = try TurboKillerHelperManager.prepare()
+            var state =
+                try TurboKillerHelperManager.prepare()
+
+            // "enabled" only means Service Management has a registration.
+            // Verify that the helper can actually respond over XPC.
+            if state == .ready {
+                do {
+                    let result =
+                        try await TurboKillerHelperClient
+                            .healthCheck()
+
+                    guard result.status == 0 else {
+                        throw TurboKillerHelperClientError
+                            .proxyUnavailable
+                    }
+
+                } catch {
+                    // The registered helper may belong to an old or
+                    // no-longer-existing copy of TurboKiller.
+                    state =
+                        try await TurboKillerHelperManager
+                            .repair()
+
+                    if state == .ready {
+                        let result =
+                            try await TurboKillerHelperClient
+                                .healthCheck()
+
+                        guard result.status == 0 else {
+                            throw TurboKillerHelperClientError
+                                .proxyUnavailable
+                        }
+                    }
+                }
+            }
 
             switch state {
             case .ready:
                 helperReady = true
+                errorMessage = nil
 
-                if requiredAction == .approvePrivilegedHelper {
+                if requiredAction ==
+                    .approvePrivilegedHelper
+                {
                     requiredAction = nil
                 }
 
             case .requiresApproval:
                 helperReady = false
-                requiredAction = .approvePrivilegedHelper
+                requiredAction =
+                    .approvePrivilegedHelper
 
             case .unavailable:
                 helperReady = false
                 errorMessage =
                     "The TurboKiller privileged helper is unavailable."
             }
+
         } catch {
             helperReady = false
             errorMessage = error.localizedDescription
