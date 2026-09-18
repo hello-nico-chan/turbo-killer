@@ -1,6 +1,62 @@
 {
   "sourceLanguage": "en",
   "strings": {
+    "About": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "情報"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "정보"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "关于"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "關於"
+          }
+        }
+      }
+    },
+    "App language": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "アプリの言語"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "앱 언어"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "App 语言"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "App 語言"
+          }
+        }
+      }
+    },
     "Apple silicon detected": {
       "localizations": {
         "ja": {
@@ -57,6 +113,34 @@
         }
       }
     },
+    "Automatically open TurboKiller when you log in to your Mac.": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Macへのログイン時にTurboKillerを自動的に開きます。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mac에 로그인할 때 TurboKiller를 자동으로 엽니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "登录 Mac 时自动打开 TurboKiller。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "登入 Mac 時自動開啟 TurboKiller。"
+          }
+        }
+      }
+    },
     "Background helper approval required": {
       "localizations": {
         "ja": {
@@ -81,6 +165,34 @@
           "stringUnit": {
             "state": "translated",
             "value": "需要核准背景 Helper"
+          }
+        }
+      }
+    },
+    "Buy me a coffee": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "コーヒーをおごる"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "커피 한 잔 후원하기"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请我喝杯咖啡"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "請我喝杯咖啡"
           }
         }
       }
@@ -113,20 +225,64 @@
         }
       }
     },
-    "Could not connect to the TurboKiller privileged helper.": {
+    "Copied": {
       "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "コピーしました"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "복사됨"
+          }
+        },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "无法连接到 TurboKiller 特权 Helper。"
+            "value": "已复制"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "無法連線至 TurboKiller 特權 Helper。"
+            "value": "已複製"
+          }
+        }
+      }
+    },
+    "Copy Diagnostics": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "診断情報をコピー"
           }
         },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "진단 정보 복사"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "复制诊断信息"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "複製診斷資訊"
+          }
+        }
+      }
+    },
+    "Could not connect to the TurboKiller privileged helper.": {
+      "localizations": {
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -138,23 +294,23 @@
             "state": "translated",
             "value": "TurboKiller 권한 Helper에 연결할 수 없습니다."
           }
-        }
-      }
-    },
-    "Could not unregister the previous privileged helper:": {
-      "localizations": {
+        },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "无法注销之前的特权 Helper："
+            "value": "无法连接到 TurboKiller 特权 Helper。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "無法取消註冊先前的特權 Helper："
+            "value": "無法連線至 TurboKiller 特權 Helper。"
           }
-        },
+        }
+      }
+    },
+    "Could not unregister the previous privileged helper:": {
+      "localizations": {
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -166,23 +322,79 @@
             "state": "translated",
             "value": "이전 권한 Helper의 등록을 해제할 수 없습니다:"
           }
-        }
-      }
-    },
-    "Hardware control is not connected.": {
-      "localizations": {
+        },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "硬件控制尚未连接。"
+            "value": "无法注销之前的特权 Helper："
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "硬體控制尚未連線。"
+            "value": "無法取消註冊先前的特權 Helper："
+          }
+        }
+      }
+    },
+    "Free and open source · GNU GPL v2": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "無料・オープンソース · GNU GPL v2"
           }
         },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "무료 오픈 소스 · GNU GPL v2"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "免费且开源 · GNU GPL v2"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "免費且開源 · GNU GPL v2"
+          }
+        }
+      }
+    },
+    "General": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "一般"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "일반"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "通用"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "一般"
+          }
+        }
+      }
+    },
+    "Hardware control is not connected.": {
+      "localizations": {
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -193,6 +405,18 @@
           "stringUnit": {
             "state": "translated",
             "value": "하드웨어 제어가 연결되어 있지 않습니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "硬件控制尚未连接。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "硬體控制尚未連線。"
           }
         }
       }
@@ -253,20 +477,92 @@
         }
       }
     },
-    "macOS blocked the Turbo Boost kernel extension. Open System Settings → Privacy & Security and allow it, then try again.": {
+    "Language": {
       "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "言語"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "언어"
+          }
+        },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "macOS 已阻止 Turbo Boost 内核扩展。请打开“系统设置 → 隐私与安全性”并允许该扩展，然后重试。"
+            "value": "语言"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "macOS 已阻擋 Turbo Boost 核心延伸模組。請開啟「系統設定 → 隱私權與安全性」並允許該延伸模組，然後再試一次。"
+            "value": "語言"
+          }
+        }
+      }
+    },
+    "Launch TurboKiller at login": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ログイン時にTurboKillerを起動"
           }
         },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "로그인 시 TurboKiller 실행"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "登录时启动 TurboKiller"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "登入時啟動 TurboKiller"
+          }
+        }
+      }
+    },
+    "License": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ライセンス"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "라이선스"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "许可证"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "授權條款"
+          }
+        }
+      }
+    },
+    "macOS blocked the Turbo Boost kernel extension. Open System Settings → Privacy & Security and allow it, then try again.": {
+      "localizations": {
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -278,23 +574,23 @@
             "state": "translated",
             "value": "macOS에서 Turbo Boost 커널 확장을 차단했습니다. “시스템 설정 → 개인정보 보호 및 보안”에서 허용한 후 다시 시도하세요."
           }
-        }
-      }
-    },
-    "macOS has approved the kernel extension, but your Mac must be restarted once before TurboKiller can use it.": {
-      "localizations": {
+        },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "macOS 已批准内核扩展，但必须重新启动一次 Mac，TurboKiller 才能使用它。"
+            "value": "macOS 已阻止 Turbo Boost 内核扩展。请打开“系统设置 → 隐私与安全性”并允许该扩展，然后重试。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "macOS 已允許核心延伸模組，但必須重新啟動一次 Mac，TurboKiller 才能使用它。"
+            "value": "macOS 已阻擋 Turbo Boost 核心延伸模組。請開啟「系統設定 → 隱私權與安全性」並允許該延伸模組，然後再試一次。"
           }
-        },
+        }
+      }
+    },
+    "macOS has approved the kernel extension, but your Mac must be restarted once before TurboKiller can use it.": {
+      "localizations": {
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -305,6 +601,18 @@
           "stringUnit": {
             "state": "translated",
             "value": "macOS에서 커널 확장을 승인했지만 TurboKiller에서 사용하려면 Mac을 한 번 재시동해야 합니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "macOS 已批准内核扩展，但必须重新启动一次 Mac，TurboKiller 才能使用它。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "macOS 已允許核心延伸模組，但必須重新啟動一次 Mac，TurboKiller 才能使用它。"
           }
         }
       }
@@ -333,6 +641,92 @@
           "stringUnit": {
             "state": "translated",
             "value": "CPU 可發揮最高效能。"
+          }
+        }
+      }
+    },
+    "NicoTech Studio": {},
+    "Official Project": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "官方项目"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "官方專案"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "公式プロジェクト"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "공식 프로젝트"
+          }
+        }
+      }
+    },
+    "Open Language & Region…": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "言語と地域を開く…"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "언어 및 지역 열기…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "打开语言与地区…"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "開啟語言與地區…"
+          }
+        }
+      }
+    },
+    "Open Language Settings…": {
+      "extractionState": "stale",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "言語設定を開く…"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "언어 설정 열기…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "打开语言设置…"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "開啟語言設定…"
           }
         }
       }
@@ -393,6 +787,34 @@
         }
       }
     },
+    "Report an Issue": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "問題を報告"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "문제 신고"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "报告问题"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "回報問題"
+          }
+        }
+      }
+    },
     "Restart required": {
       "localizations": {
         "ja": {
@@ -449,20 +871,64 @@
         }
       }
     },
-    "The bundled Turbo Boost kernel extension could not be found.": {
+    "Settings…": {
       "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "設定…"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "설정…"
+          }
+        },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "找不到内置的 Turbo Boost 内核扩展。"
+            "value": "设置…"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "找不到內建的 Turbo Boost 核心延伸模組。"
+            "value": "設定…"
+          }
+        }
+      }
+    },
+    "Support TurboKiller": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "TurboKillerを支援"
           }
         },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "TurboKiller 후원"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "支持 TurboKiller"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "支持 TurboKiller"
+          }
+        }
+      }
+    },
+    "The bundled Turbo Boost kernel extension could not be found.": {
+      "localizations": {
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -474,23 +940,23 @@
             "state": "translated",
             "value": "내장된 Turbo Boost 커널 확장을 찾을 수 없습니다."
           }
-        }
-      }
-    },
-    "The bundled Turbo Boost kernel extension does not match the expected version.": {
-      "localizations": {
+        },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "内置的 Turbo Boost 内核扩展与预期版本不匹配。"
+            "value": "找不到内置的 Turbo Boost 内核扩展。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "內建的 Turbo Boost 核心延伸模組與預期版本不符。"
+            "value": "找不到內建的 Turbo Boost 核心延伸模組。"
           }
-        },
+        }
+      }
+    },
+    "The bundled Turbo Boost kernel extension does not match the expected version.": {
+      "localizations": {
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -501,6 +967,18 @@
           "stringUnit": {
             "state": "translated",
             "value": "내장된 Turbo Boost 커널 확장이 예상된 버전과 일치하지 않습니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "内置的 Turbo Boost 内核扩展与预期版本不匹配。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "內建的 Turbo Boost 核心延伸模組與預期版本不符。"
           }
         }
       }
@@ -535,18 +1013,6 @@
     },
     "The kernel extension could not be loaded.": {
       "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "无法加载内核扩展。"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "無法載入核心延伸模組。"
-          }
-        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -558,23 +1024,23 @@
             "state": "translated",
             "value": "커널 확장을 로드할 수 없습니다."
           }
-        }
-      }
-    },
-    "The kernel extension could not be unloaded.": {
-      "localizations": {
+        },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "无法卸载内核扩展。"
+            "value": "无法加载内核扩展。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "無法卸載核心延伸模組。"
+            "value": "無法載入核心延伸模組。"
           }
-        },
+        }
+      }
+    },
+    "The kernel extension could not be unloaded.": {
+      "localizations": {
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -586,23 +1052,23 @@
             "state": "translated",
             "value": "커널 확장을 언로드할 수 없습니다."
           }
-        }
-      }
-    },
-    "The kernel extension must be approved in System Settings before it can be used.": {
-      "localizations": {
+        },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "使用前必须先在系统设置中批准该内核扩展。"
+            "value": "无法卸载内核扩展。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "使用前必須先在系統設定中允許該核心延伸模組。"
+            "value": "無法卸載核心延伸模組。"
           }
-        },
+        }
+      }
+    },
+    "The kernel extension must be approved in System Settings before it can be used.": {
+      "localizations": {
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -614,23 +1080,23 @@
             "state": "translated",
             "value": "사용하기 전에 시스템 설정에서 커널 확장을 승인해야 합니다."
           }
-        }
-      }
-    },
-    "The kernel extension was approved, but macOS requires a restart before it can be used.": {
-      "localizations": {
+        },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "内核扩展已获批准，但 macOS 要求重新启动后才能使用。"
+            "value": "使用前必须先在系统设置中批准该内核扩展。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "核心延伸模組已獲允許，但 macOS 要求重新啟動後才能使用。"
+            "value": "使用前必須先在系統設定中允許該核心延伸模組。"
           }
-        },
+        }
+      }
+    },
+    "The kernel extension was approved, but macOS requires a restart before it can be used.": {
+      "localizations": {
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -642,23 +1108,23 @@
             "state": "translated",
             "value": "커널 확장이 승인되었지만 사용하려면 macOS를 재시동해야 합니다."
           }
-        }
-      }
-    },
-    "The TurboKiller privileged helper could not be found.": {
-      "localizations": {
+        },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "找不到 TurboKiller 特权 Helper。"
+            "value": "内核扩展已获批准，但 macOS 要求重新启动后才能使用。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "找不到 TurboKiller 特權 Helper。"
+            "value": "核心延伸模組已獲允許，但 macOS 要求重新啟動後才能使用。"
           }
-        },
+        }
+      }
+    },
+    "The TurboKiller privileged helper could not be found.": {
+      "localizations": {
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -670,23 +1136,23 @@
             "state": "translated",
             "value": "TurboKiller 권한 Helper를 찾을 수 없습니다."
           }
-        }
-      }
-    },
-    "The TurboKiller privileged helper could not be registered.": {
-      "localizations": {
+        },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "无法注册 TurboKiller 特权 Helper。"
+            "value": "找不到 TurboKiller 特权 Helper。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "無法註冊 TurboKiller 特權 Helper。"
+            "value": "找不到 TurboKiller 特權 Helper。"
           }
-        },
+        }
+      }
+    },
+    "The TurboKiller privileged helper could not be registered.": {
+      "localizations": {
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -698,23 +1164,23 @@
             "state": "translated",
             "value": "TurboKiller 권한 Helper를 등록할 수 없습니다."
           }
-        }
-      }
-    },
-    "The TurboKiller privileged helper did not respond.": {
-      "localizations": {
+        },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "TurboKiller 特权 Helper 未响应。"
+            "value": "无法注册 TurboKiller 特权 Helper。"
           }
         },
         "zh-Hant": {
           "stringUnit": {
             "state": "translated",
-            "value": "TurboKiller 特權 Helper 沒有回應。"
+            "value": "無法註冊 TurboKiller 特權 Helper。"
           }
-        },
+        }
+      }
+    },
+    "The TurboKiller privileged helper did not respond.": {
+      "localizations": {
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -726,11 +1192,35 @@
             "state": "translated",
             "value": "TurboKiller 권한 Helper가 응답하지 않았습니다."
           }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "TurboKiller 特权 Helper 未响应。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "TurboKiller 特權 Helper 沒有回應。"
+          }
         }
       }
     },
     "The TurboKiller privileged helper is unavailable.": {
       "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "TurboKiller の特権 Helper は現在利用できません。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "TurboKiller 권한 Helper를 현재 사용할 수 없습니다."
+          }
+        },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
@@ -742,17 +1232,33 @@
             "state": "translated",
             "value": "TurboKiller 特權 Helper 目前無法使用。"
           }
-        },
+        }
+      }
+    },
+    "Third-Party Notices": {
+      "localizations": {
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "TurboKiller の特権 Helper は現在利用できません。"
+            "value": "サードパーティ通知"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "TurboKiller 권한 Helper를 현재 사용할 수 없습니다."
+            "value": "서드파티 고지"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "第三方声明"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "第三方聲明"
           }
         }
       }
@@ -787,18 +1293,6 @@
     },
     "Turbo Boost control failed.": {
       "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Turbo Boost 控制失败。"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Turbo Boost 控制失敗。"
-          }
-        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -809,6 +1303,18 @@
           "stringUnit": {
             "state": "translated",
             "value": "Turbo Boost 제어에 실패했습니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Turbo Boost 控制失败。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Turbo Boost 控制失敗。"
           }
         }
       }
@@ -843,18 +1349,6 @@
     },
     "Turbo Boost control is only available on supported Intel Macs.": {
       "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Turbo Boost 控制仅适用于受支持的 Intel Mac。"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Turbo Boost 控制僅適用於受支援的 Intel Mac。"
-          }
-        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -865,6 +1359,18 @@
           "stringUnit": {
             "state": "translated",
             "value": "Turbo Boost 제어는 지원되는 Intel Mac에서만 사용할 수 있습니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Turbo Boost 控制仅适用于受支持的 Intel Mac。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Turbo Boost 控制僅適用於受支援的 Intel Mac。"
           }
         }
       }
@@ -1009,6 +1515,35 @@
         }
       }
     },
+    "TurboKiller follows the language selected for the app in macOS.": {
+      "extractionState": "stale",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "TurboKillerはmacOSでこのアプリに設定された言語を使用します。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "TurboKiller는 macOS에서 이 앱에 선택된 언어를 사용합니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "TurboKiller 将使用 macOS 中为此 App 选择的语言。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "TurboKiller 將使用 macOS 中為此 App 選擇的語言。"
+          }
+        }
+      }
+    },
     "TurboKiller is designed for Intel Macs only.": {
       "localizations": {
         "ja": {
@@ -1037,8 +1572,48 @@
         }
       }
     },
+    "TurboKiller is free and open source. If it helps you, you can buy me a coffee.": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "TurboKillerは無料のオープンソースソフトウェアです。役に立ったら、コーヒーをごちそうしていただけるとうれしいです。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "TurboKiller는 무료 오픈 소스 소프트웨어입니다. 도움이 되었다면 커피 한 잔으로 후원해 주세요."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "TurboKiller 免费且开源。如果它对你有帮助，可以请我喝杯咖啡。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "TurboKiller 免費且開源。如果它對你有幫助，可以請我喝杯咖啡。"
+          }
+        }
+      }
+    },
     "TurboKiller needs permission to run its privileged helper in the background. Allow TurboKiller in System Settings, then return here.": {
       "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "TurboKiller が特権 Helper をバックグラウンドで実行するには許可が必要です。システム設定で TurboKiller のバックグラウンド実行を許可してから、ここに戻ってください。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "TurboKiller가 권한 있는 Helper를 백그라운드에서 실행하려면 승인이 필요합니다. 시스템 설정에서 TurboKiller의 백그라운드 실행을 허용한 후 여기로 돌아오세요."
+          }
+        },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
@@ -1050,17 +1625,61 @@
             "state": "translated",
             "value": "TurboKiller 需要取得在背景執行特權 Helper 的權限。請在系統設定中允許 TurboKiller 在背景執行，然後返回此處。"
           }
-        },
+        }
+      }
+    },
+    "Under Applications, add or select TurboKiller and choose a language. This changes TurboKiller only and does not change your Mac's system language.": {
+      "localizations": {
         "ja": {
           "stringUnit": {
             "state": "translated",
-            "value": "TurboKiller が特権 Helper をバックグラウンドで実行するには許可が必要です。システム設定で TurboKiller のバックグラウンド実行を許可してから、ここに戻ってください。"
+            "value": "「アプリケーション」で TurboKiller を追加または選択し、言語を選んでください。変更されるのは TurboKiller の言語だけで、Mac のシステム言語は変更されません。"
           }
         },
         "ko": {
           "stringUnit": {
             "state": "translated",
-            "value": "TurboKiller가 권한 있는 Helper를 백그라운드에서 실행하려면 승인이 필요합니다. 시스템 설정에서 TurboKiller의 백그라운드 실행을 허용한 후 여기로 돌아오세요."
+            "value": "‘응용 프로그램’에서 TurboKiller를 추가하거나 선택한 다음 언어를 선택하세요. TurboKiller의 언어만 변경되며 Mac의 시스템 언어는 변경되지 않습니다."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在“应用程序”中添加或选择 TurboKiller，然后选择语言。这只会更改 TurboKiller 的语言，不会更改 Mac 的系统语言。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在「應用程式」中加入或選擇 TurboKiller，然後選擇語言。這只會變更 TurboKiller 的語言，不會變更 Mac 的系統語言。"
+          }
+        }
+      }
+    },
+    "Version %@": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "バージョン %@"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "버전 %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "版本 %@"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "版本 %@"
           }
         }
       }

@@ -111,8 +111,26 @@ struct ContentView: View {
             Divider()
 
             HStack {
+                if #available(macOS 14.0, *) {
+                    SettingsLink {
+                        Label("Settings…", systemImage: "gearshape")
+                    }
+                    .keyboardShortcut(",", modifiers: .command)
+                } else {
+                    Button {
+                        NSApp.sendAction(
+                            Selector(("showSettingsWindow:")),
+                            to: nil,
+                            from: nil
+                        )
+                    } label: {
+                        Label("Settings…", systemImage: "gearshape")
+                    }
+                    .keyboardShortcut(",", modifiers: .command)
+                }
+
                 Spacer()
-                
+
                 Button("Quit TurboKiller") {
                     NSApplication.shared.terminate(nil)
                 }
