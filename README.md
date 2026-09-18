@@ -87,6 +87,16 @@ TurboKiller relies on a legacy kernel-extension compatibility path that Apple ha
 
 Compatibility is therefore not guaranteed across every Intel CPU family or every future macOS release.
 
+## Official releases
+
+The canonical source for official TurboKiller releases is this repository:
+
+`https://github.com/hello-nico-chan/turbo-killer`
+
+Official release builds are signed with the NicoTech Studio Developer ID.
+
+Forks and modified builds are welcome under the GPLv2 license, but they should clearly identify themselves as modified builds and should not imply that they are official TurboKiller releases.
+
 ## License
 
 TurboKiller is distributed under the GNU General Public License version 2.

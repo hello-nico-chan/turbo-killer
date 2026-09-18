@@ -87,6 +87,16 @@ TurboKiller는 Apple이 더 이상 권장하지 않는 Legacy Kernel Extension �
 
 따라서 모든 Intel CPU 계열이나 향후 모든 macOS 버전에서의 동작을 보장할 수 없습니다.
 
+## 공식 릴리스
+
+TurboKiller 공식 릴리스의 정식 배포처는 이 저장소입니다.
+
+`https://github.com/hello-nico-chan/turbo-killer`
+
+공식 릴리스는 NicoTech Studio의 Developer ID로 서명됩니다.
+
+GPLv2에 따라 Fork, 수정 및 재배포할 수 있지만, 수정된 빌드는 수정 버전임을 명확히 표시하고 TurboKiller의 공식 릴리스인 것처럼 오해하게 해서는 안 됩니다.
+
 ## 라이선스
 
 TurboKiller는 GNU General Public License version 2로 배포됩니다.

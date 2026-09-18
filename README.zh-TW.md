@@ -87,6 +87,16 @@ TurboKiller 使用 Apple 已棄用的 Legacy Kernel Extension 相容機制。
 
 因此無法保證所有 Intel CPU 型號以及未來所有 macOS 版本都能持續相容。
 
+## 官方發行版
+
+TurboKiller 官方發行版的權威來源為本儲存庫：
+
+`https://github.com/hello-nico-chan/turbo-killer`
+
+官方發行版使用 NicoTech Studio 的 Developer ID 簽署。
+
+依照 GPLv2，任何人都可以 Fork、修改及重新散布本專案，但修改後的版本應清楚標示為修改版，不應讓使用者誤以為它是 TurboKiller 官方發行版。
+
 ## 授權條款
 
 TurboKiller 依 GNU General Public License version 2 發佈。
