@@ -55,7 +55,6 @@ final class TurboKillerModel: ObservableObject {
     func refreshStatus() async {
         do {
             turboBoostStatus = try await controller.currentStatus()
-            errorMessage = nil
         } catch {
             turboBoostStatus = .unavailable
             errorMessage = error.localizedDescription
@@ -210,6 +209,7 @@ final class TurboKillerModel: ObservableObject {
 
             case .requiresApproval:
                 helperReady = false
+                errorMessage = nil
                 requiredAction =
                     .approvePrivilegedHelper
 

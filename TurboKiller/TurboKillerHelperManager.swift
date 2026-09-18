@@ -104,9 +104,7 @@ struct TurboKillerHelperManager {
         //
         // Give Service Management time to finish removing the
         // previous LaunchDaemon before registering the new one.
-        try await Task<Never, Never>.sleep(
-            nanoseconds: 2_000_000_000
-        )
+        await waitForServiceManagement()
 
         do {
             try service.register()
@@ -150,6 +148,18 @@ struct TurboKillerHelperManager {
 
         @unknown default:
             return .unavailable
+        }
+    }
+    
+    private static func waitForServiceManagement() async {
+        await withCheckedContinuation {
+            (continuation: CheckedContinuation<Void, Never>) in
+
+            DispatchQueue.main.asyncAfter(
+                deadline: .now() + 2
+            ) {
+                continuation.resume()
+            }
         }
     }
 
