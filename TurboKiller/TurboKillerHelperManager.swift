@@ -14,11 +14,17 @@ enum TurboKillerHelperManagerError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .helperNotFound:
-            return "The TurboKiller privileged helper could not be found."
+            return String(
+                localized:
+                    "The TurboKiller privileged helper could not be found."
+            )
 
         case .registrationFailed(let message):
             return message.isEmpty
-                ? "The TurboKiller privileged helper could not be registered."
+                ? String(
+                    localized:
+                        "The TurboKiller privileged helper could not be registered."
+                )
                 : message
         }
     }
@@ -95,9 +101,14 @@ struct TurboKillerHelperManager {
                 try await service.unregister()
             } catch {
                 if service.status != .notRegistered {
+                    let prefix = String(
+                        localized:
+                            "Could not unregister the previous privileged helper:"
+                    )
+
                     throw TurboKillerHelperManagerError
                         .registrationFailed(
-                            "Could not unregister the previous privileged helper: \(error.localizedDescription)"
+                            "\(prefix) \(error.localizedDescription)"
                         )
                 }
             }

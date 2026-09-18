@@ -145,9 +145,7 @@ struct ContentView: View {
                             .font(.caption.weight(.semibold))
 
                         Text(
-                            "TurboKiller needs permission to run its privileged helper " +
-                            "in the background. Allow TurboKiller in System Settings, " +
-                            "then return here."
+                            "TurboKiller needs permission to run its privileged helper in the background. Allow TurboKiller in System Settings, then return here."
                         )
                         .font(.caption)
                         .foregroundStyle(.secondary)
@@ -184,9 +182,7 @@ struct ContentView: View {
                             .font(.caption.weight(.semibold))
 
                         Text(
-                            "macOS blocked the Turbo Boost kernel extension. " +
-                            "Open System Settings → Privacy & Security and allow it, " +
-                            "then try again."
+                            "macOS blocked the Turbo Boost kernel extension. Open System Settings → Privacy & Security and allow it, then try again."
                         )
                         .font(.caption)
                         .foregroundStyle(.secondary)
@@ -215,8 +211,7 @@ struct ContentView: View {
                         .font(.caption.weight(.semibold))
 
                     Text(
-                        "macOS has approved the kernel extension, " +
-                        "but your Mac must be restarted once before TurboKiller can use it."
+                        "macOS has approved the kernel extension, but your Mac must be restarted once before TurboKiller can use it."
                     )
                     .font(.caption)
                     .foregroundStyle(.secondary)
@@ -261,7 +256,7 @@ struct ContentView: View {
         }
     }
 
-    private var compatibilityTitle: String {
+    private var compatibilityTitle: LocalizedStringResource {
         switch model.hardware {
         case .intelMac:
             "Intel Mac detected"
@@ -271,7 +266,7 @@ struct ContentView: View {
         }
     }
 
-    private var compatibilityDetail: String {
+    private var compatibilityDetail: LocalizedStringResource {
         switch model.hardware {
         case .intelMac:
             "This Mac is compatible with TurboKiller's target platform."
@@ -309,7 +304,7 @@ struct ContentView: View {
         }
     }
 
-    private var statusTitle: String {
+    private var statusTitle: LocalizedStringResource {
         switch model.turboBoostStatus {
         case .unavailable:
             "Turbo Boost status unavailable"
@@ -322,7 +317,7 @@ struct ContentView: View {
         }
     }
 
-    private var statusDetail: String {
+    private var statusDetail: LocalizedStringResource {
         switch model.turboBoostStatus {
         case .unavailable:
             "Turbo Boost status could not be read."
@@ -337,7 +332,7 @@ struct ContentView: View {
 
     // MARK: - Toggle button
 
-    private var toggleTitle: String {
+    private var toggleTitle: LocalizedStringResource {
         model.turboBoostStatus == .disabled
             ? "Restore Turbo Boost"
             : "Kill Turbo Boost"

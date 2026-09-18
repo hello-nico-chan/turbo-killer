@@ -24,26 +24,43 @@ enum TurboBoostControlError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .notConnected:
-            return "Hardware control is not connected."
+            return String(
+                localized: "Hardware control is not connected."
+            )
 
         case .unsupportedMac:
-            return "Turbo Boost control is only available on supported Intel Macs."
+            return String(
+                localized:
+                    "Turbo Boost control is only available on supported Intel Macs."
+            )
 
         case .bundledKextMissing:
-            return "The bundled Turbo Boost kernel extension could not be found."
+            return String(
+                localized:
+                    "The bundled Turbo Boost kernel extension could not be found."
+            )
 
         case .bundledKextModified:
-            return "The bundled Turbo Boost kernel extension does not match the expected version."
+            return String(
+                localized:
+                    "The bundled Turbo Boost kernel extension does not match the expected version."
+            )
 
         case .approvalRequired:
-            return "The kernel extension must be approved in System Settings before it can be used."
+            return String(
+                localized:
+                    "The kernel extension must be approved in System Settings before it can be used."
+            )
 
         case .restartRequired:
-            return "The kernel extension was approved, but macOS requires a restart before it can be used."
+            return String(
+                localized:
+                    "The kernel extension was approved, but macOS requires a restart before it can be used."
+            )
 
         case .commandFailed(let message):
             return message.isEmpty
-                ? "Turbo Boost control failed."
+                ? String(localized: "Turbo Boost control failed.")
                 : message
         }
     }
@@ -113,13 +130,19 @@ struct LegacyKextTurboBoostController: TurboBoostControlling {
 
         if enabled && updated != .enabled {
             throw TurboBoostControlError.commandFailed(
-                "The kernel extension could not be unloaded."
+                String(
+                    localized:
+                        "The kernel extension could not be unloaded."
+                )
             )
         }
 
         if !enabled && updated != .disabled {
             throw TurboBoostControlError.commandFailed(
-                "The kernel extension could not be loaded."
+                String(
+                    localized:
+                        "The kernel extension could not be loaded."
+                )
             )
         }
 #else

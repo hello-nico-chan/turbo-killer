@@ -12,10 +12,16 @@ enum TurboKillerHelperClientError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .proxyUnavailable:
-            return "Could not connect to the TurboKiller privileged helper."
+            return String(
+                localized:
+                    "Could not connect to the TurboKiller privileged helper."
+            )
 
         case .timedOut:
-            return "The TurboKiller privileged helper did not respond."
+            return String(
+                localized:
+                    "The TurboKiller privileged helper did not respond."
+            )
         }
     }
 }

@@ -107,8 +107,10 @@ final class TurboKillerModel: ObservableObject {
 
                 case .unavailable:
                     helperReady = false
-                    errorMessage =
-                        "The TurboKiller privileged helper is unavailable."
+                    errorMessage = String(
+                        localized:
+                            "The TurboKiller privileged helper is unavailable."
+                    )
                 }
 
             } catch let controlError as TurboBoostControlError {
@@ -215,8 +217,10 @@ final class TurboKillerModel: ObservableObject {
 
             case .unavailable:
                 helperReady = false
-                errorMessage =
-                    "The TurboKiller privileged helper is unavailable."
+                errorMessage = String(
+                    localized:
+                        "The TurboKiller privileged helper is unavailable."
+                )
             }
 
         } catch {
