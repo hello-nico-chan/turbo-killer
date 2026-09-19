@@ -18,23 +18,11 @@ Pinned executable SHA-256:
 
 The bundled Kext was obtained from the historical `rugarciap/Turbo-Boost-Switcher` project.
 
+Copyright for that upstream project is held by Rubén García Pérez and contributors. The upstream project is distributed under GNU General Public License version 2, with source notices permitting version 2 or later.
+
 Turbo Boost Switcher credits the `nanoant/DisableTurboBoost.kext` project, originally written by Adam Strzelecki, as the origin of the Turbo Boost kernel-extension implementation.
 
 TurboKiller redistributes the historical Kext unchanged and does not claim authorship of it.
-
-## Turbo Boost Switcher
-
-Project:
-
-`rugarciap/Turbo-Boost-Switcher`
-
-Copyright:
-
-Rubén García Pérez and contributors.
-
-License:
-
-GNU General Public License version 2, with upstream source notices permitting version 2 or later.
 
 ## DisableTurboBoost.kext
 

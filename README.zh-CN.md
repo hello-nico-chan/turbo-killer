@@ -34,8 +34,6 @@ TurboKiller 内置了一份固定版本的历史 `DisableTurboBoost.64bits.kext`
 - 加载 Kext 以关闭 Turbo Boost；
 - 卸载 Kext 以恢复 Turbo Boost。
 
-TurboKiller 不要求安装 Turbo Boost Switcher。
-
 Turbo Boost 的当前状态通过 `kmutil` 查询实际加载的 Kext 状态确定，而不是仅依赖界面中的本地状态。
 
 ## 首次运行

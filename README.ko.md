@@ -34,8 +34,6 @@ root 권한으로 실행되는 Helper는 다음 작업을 수행합니다.
 - Kext를 로드하여 Turbo Boost 비활성화
 - Kext를 언로드하여 Turbo Boost 복원
 
-Turbo Boost Switcher를 별도로 설치할 필요는 없습니다.
-
 현재 Turbo Boost 상태는 UI 내부 상태가 아니라 `kmutil`을 이용해 실제로 로드된 Kext 상태를 확인하여 판단합니다.
 
 ## 최초 실행

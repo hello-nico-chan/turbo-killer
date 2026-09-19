@@ -34,8 +34,6 @@ The privileged helper:
 - loads the Kext to disable Turbo Boost;
 - unloads the Kext to restore Turbo Boost.
 
-TurboKiller does not require Turbo Boost Switcher to be installed.
-
 The current Turbo Boost state is determined from the actual loaded Kext state using `kmutil`, rather than from UI state alone.
 
 ## First run
