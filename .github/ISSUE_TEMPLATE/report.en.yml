@@ -1,0 +1,123 @@
+name: Report — English
+description: Report a bug or share a compatibility result
+title: "[Report] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve TurboKiller. Use this form for either a bug report or a compatibility report.
+
+  - type: dropdown
+    id: report_type
+    attributes:
+      label: Report type
+      options:
+        - Bug report
+        - Compatibility report
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: TurboKiller version
+      placeholder: e.g. 1.1.0
+    validations:
+      required: true
+
+  - type: input
+    id: mac
+    attributes:
+      label: Mac model
+      description: Model name or identifier if known.
+      placeholder: e.g. MacBookPro16,1
+    validations:
+      required: true
+
+  - type: input
+    id: cpu
+    attributes:
+      label: CPU
+      placeholder: e.g. Intel Core i7-9750H
+    validations:
+      required: true
+
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version
+      placeholder: e.g. macOS 15.7
+    validations:
+      required: true
+
+  - type: dropdown
+    id: sip
+    attributes:
+      label: System Integrity Protection (SIP)
+      options:
+        - Enabled
+        - Disabled
+        - Not sure
+    validations:
+      required: true
+
+  - type: dropdown
+    id: compatibility_result
+    attributes:
+      label: Compatibility result
+      description: For bug reports, choose Not applicable.
+      options:
+        - Not applicable — bug report
+        - Works correctly
+        - Partially works
+        - Does not work
+    validations:
+      required: true
+
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: For bugs, describe what happened and what you expected. For compatibility reports, describe the result and anything unusual.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Required for reproducible bugs; optional for compatibility reports.
+      placeholder: |
+        1. Open TurboKiller
+        2. ...
+        3. ...
+
+  - type: checkboxes
+    id: behavior
+    attributes:
+      label: What worked?
+      description: Useful for compatibility reports.
+      options:
+        - label: Privileged helper installed successfully
+        - label: Kernel extension was approved and loaded
+        - label: Turbo Boost could be disabled
+        - label: Turbo Boost could be re-enabled
+        - label: Status shown in TurboKiller matched the actual state
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs or screenshots
+      description: Paste relevant text logs or attach screenshots if available.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: This report is for an Intel Mac.
+          required: true
+        - label: I tested the official TurboKiller build or an unmodified build from this repository.
+          required: true
+        - label: I checked existing issues for the same problem or configuration.
+          required: true
