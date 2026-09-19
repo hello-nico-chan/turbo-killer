@@ -1,0 +1,90 @@
+name: Compatibility report
+description: Report whether TurboKiller works on a specific Intel Mac configuration
+title: "[Compatibility] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Compatibility reports help build a real-world picture of which Intel Macs and macOS versions TurboKiller works on. Successful reports are just as useful as failures.
+
+  - type: input
+    id: version
+    attributes:
+      label: TurboKiller version
+      placeholder: e.g. 1.1.0
+    validations:
+      required: true
+
+  - type: input
+    id: mac
+    attributes:
+      label: Mac model
+      description: Model name or identifier if known.
+      placeholder: e.g. MacBookPro16,1
+    validations:
+      required: true
+
+  - type: input
+    id: cpu
+    attributes:
+      label: CPU
+      placeholder: e.g. Intel Core i7-9750H
+    validations:
+      required: true
+
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version
+      placeholder: e.g. macOS 15.7
+    validations:
+      required: true
+
+  - type: dropdown
+    id: sip
+    attributes:
+      label: System Integrity Protection (SIP)
+      options:
+        - Enabled
+        - Disabled
+        - Not sure
+    validations:
+      required: true
+
+  - type: dropdown
+    id: result
+    attributes:
+      label: Result
+      options:
+        - Works correctly
+        - Partially works
+        - Does not work
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: behavior
+    attributes:
+      label: What worked?
+      options:
+        - label: Privileged helper installed successfully
+        - label: Kernel extension was approved and loaded
+        - label: Turbo Boost could be disabled
+        - label: Turbo Boost could be re-enabled
+        - label: Status shown in TurboKiller matched the actual state
+
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: Add anything unusual, including approval prompts, restart requirements, error messages, or workarounds.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: This report is for an Intel Mac.
+          required: true
+        - label: I tested the official TurboKiller build or an unmodified build from this repository.
+          required: true
