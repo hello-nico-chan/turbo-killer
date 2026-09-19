@@ -2,6 +2,12 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md) | [日本語](README.ja.md) | [한국어](README.ko.md)
 
+[![最新版本](https://img.shields.io/github/v/release/hello-nico-chan/turbo-killer?display_name=tag&sort=semver&style=flat-square)](https://github.com/hello-nico-chan/turbo-killer/releases/latest)
+[![下载量](https://img.shields.io/github/downloads/hello-nico-chan/turbo-killer/total?style=flat-square)](https://github.com/hello-nico-chan/turbo-killer/releases)
+![macOS 13+](https://img.shields.io/badge/macOS-13%2B-000000?style=flat-square&logo=apple&logoColor=white)
+![Intel Mac](https://img.shields.io/badge/Mac-Intel-0071C5?style=flat-square&logo=intel&logoColor=white)
+[![GPL-2.0](https://img.shields.io/github/license/hello-nico-chan/turbo-killer?style=flat-square)](LICENSE)
+
 TurboKiller 是一款免费、开源的 macOS 菜单栏工具，用于在兼容的 Intel Mac 上控制 Intel Turbo Boost。
 
 > **当前状态：** 当前使用的 Legacy Kext 后端已经在一台开启系统完整性保护（SIP）的 Intel Mac 上验证可用。更广泛的硬件与 macOS 版本兼容性无法保证。
@@ -87,6 +93,8 @@ TurboKiller 使用的是 Apple 已弃用的 Legacy Kernel Extension 兼容机制
 
 因此无法保证所有 Intel CPU 型号以及未来所有 macOS 版本都能够继续兼容。
 
+如果你在其他 Intel Mac 上尝试了 TurboKiller，欢迎提交兼容性报告——成功运行的报告同样很有价值。
+
 ## 官方发行版
 
 TurboKiller 官方发行版的权威来源为本仓库：
@@ -96,6 +104,12 @@ TurboKiller 官方发行版的权威来源为本仓库：
 官方发行版使用 NicoTech Studio 的 Developer ID 签名。
 
 根据 GPLv2，任何人都可以 Fork、修改和重新分发本项目，但修改后的版本应明确标识为修改版，不应让用户误以为它是 TurboKiller 官方发行版。
+
+## 支持
+
+如果 TurboKiller 对你有帮助，并且你愿意支持它的后续开发：
+
+<a href="https://ko-fi.com/hello_nico_chan"><img src="https://storage.ko-fi.com/cdn/kofi3.png?v=3" height="36" alt="在 Ko-fi 上支持我"></a>
 
 ## 许可证
 
