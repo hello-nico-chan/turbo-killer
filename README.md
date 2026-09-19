@@ -2,6 +2,12 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md) | [日本語](README.ja.md) | [한국어](README.ko.md)
 
+[![Latest release](https://img.shields.io/github/v/release/hello-nico-chan/turbo-killer?display_name=tag&sort=semver&style=flat-square)](https://github.com/hello-nico-chan/turbo-killer/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/hello-nico-chan/turbo-killer/total?style=flat-square)](https://github.com/hello-nico-chan/turbo-killer/releases)
+![macOS 13+](https://img.shields.io/badge/macOS-13%2B-000000?style=flat-square&logo=apple&logoColor=white)
+![Intel Mac](https://img.shields.io/badge/Mac-Intel-0071C5?style=flat-square&logo=intel&logoColor=white)
+[![GPL-2.0](https://img.shields.io/github/license/hello-nico-chan/turbo-killer?style=flat-square)](LICENSE)
+
 TurboKiller is a free and open-source macOS menu bar utility for controlling Intel Turbo Boost on compatible Intel Macs.
 
 > **Status:** The current legacy Kext backend has been validated on an Intel Mac with System Integrity Protection enabled. Broader hardware and macOS compatibility cannot be guaranteed.
@@ -87,6 +93,8 @@ TurboKiller relies on a legacy kernel-extension compatibility path that Apple ha
 
 Compatibility is therefore not guaranteed across every Intel CPU family or every future macOS release.
 
+If you try TurboKiller on another Intel Mac, a compatibility report is welcome — successful reports are useful too.
+
 ## Official releases
 
 The canonical source for official TurboKiller releases is this repository:
@@ -96,6 +104,12 @@ The canonical source for official TurboKiller releases is this repository:
 Official release builds are signed with the NicoTech Studio Developer ID.
 
 Forks and modified builds are welcome under the GPLv2 license, but they should clearly identify themselves as modified builds and should not imply that they are official TurboKiller releases.
+
+## Support
+
+If TurboKiller is useful to you and you would like to support its development:
+
+<a href="https://ko-fi.com/hello_nico_chan"><img src="https://storage.ko-fi.com/cdn/kofi3.png?v=3" height="36" alt="Support me on Ko-fi"></a>
 
 ## License
 

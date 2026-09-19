@@ -1,0 +1,123 @@
+name: レポート — 日本語
+description: 不具合または互換性テスト結果を報告します
+title: "[Report] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        TurboKiller の改善にご協力いただきありがとうございます。このフォームは、不具合報告と互換性レポートの両方に使用できます。
+
+  - type: dropdown
+    id: report_type
+    attributes:
+      label: レポート種別
+      options:
+        - 不具合報告
+        - 互換性レポート
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: TurboKiller バージョン
+      placeholder: 例 1.1.0
+    validations:
+      required: true
+
+  - type: input
+    id: mac
+    attributes:
+      label: Mac モデル
+      description: 分かる場合は、モデル名またはモデル識別子を入力してください。
+      placeholder: 例 MacBookPro16,1
+    validations:
+      required: true
+
+  - type: input
+    id: cpu
+    attributes:
+      label: CPU
+      placeholder: 例 Intel Core i7-9750H
+    validations:
+      required: true
+
+  - type: input
+    id: macos
+    attributes:
+      label: macOS バージョン
+      placeholder: 例 macOS 15.7
+    validations:
+      required: true
+
+  - type: dropdown
+    id: sip
+    attributes:
+      label: System Integrity Protection（SIP）
+      options:
+        - 有効
+        - 無効
+        - 不明
+    validations:
+      required: true
+
+  - type: dropdown
+    id: compatibility_result
+    attributes:
+      label: 互換性結果
+      description: 通常の不具合報告の場合は「該当なし」を選択してください。
+      options:
+        - 該当なし — 不具合報告
+        - 正常に動作する
+        - 一部のみ動作する
+        - 動作しない
+    validations:
+      required: true
+
+  - type: textarea
+    id: details
+    attributes:
+      label: 詳細
+      description: 不具合報告では実際の動作と期待した動作を、互換性レポートではテスト結果や特記事項を記載してください。
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 再現手順
+      description: 再現可能な不具合ではできるだけ記載してください。互換性レポートでは空欄でも構いません。
+      placeholder: |
+        1. TurboKiller を開く
+        2. ...
+        3. ...
+
+  - type: checkboxes
+    id: behavior
+    attributes:
+      label: 正常に動作した項目
+      description: 主に互換性レポート向けです。
+      options:
+        - label: 特権 Helper のインストールに成功した
+        - label: カーネル拡張を承認し、正常にロードできた
+        - label: Turbo Boost を無効にできた
+        - label: Turbo Boost を再び有効にできた
+        - label: TurboKiller の表示状態と実際の状態が一致した
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 関連ログまたはスクリーンショット
+      description: 必要に応じて、関連するログを貼り付けるかスクリーンショットを添付してください。
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: 送信前の確認
+      options:
+        - label: このレポートは Intel Mac に関するものです。
+          required: true
+        - label: TurboKiller の公式ビルド、またはこのリポジトリからの未変更ビルドをテストしました。
+          required: true
+        - label: 既存の Issue に同じ問題または同じ構成の報告がないか確認しました。
+          required: true
