@@ -1,0 +1,123 @@
+name: 보고 — 한국어
+description: 버그 또는 호환성 테스트 결과를 보고합니다
+title: "[Report] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        TurboKiller 개선에 도움을 주셔서 감사합니다. 이 양식은 버그 보고와 호환성 보고 모두에 사용할 수 있습니다.
+
+  - type: dropdown
+    id: report_type
+    attributes:
+      label: 보고 유형
+      options:
+        - 버그 보고
+        - 호환성 보고
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: TurboKiller 버전
+      placeholder: 예 1.1.0
+    validations:
+      required: true
+
+  - type: input
+    id: mac
+    attributes:
+      label: Mac 모델
+      description: 알고 있다면 모델명 또는 모델 식별자를 입력해 주세요.
+      placeholder: 예 MacBookPro16,1
+    validations:
+      required: true
+
+  - type: input
+    id: cpu
+    attributes:
+      label: CPU
+      placeholder: 예 Intel Core i7-9750H
+    validations:
+      required: true
+
+  - type: input
+    id: macos
+    attributes:
+      label: macOS 버전
+      placeholder: 예 macOS 15.7
+    validations:
+      required: true
+
+  - type: dropdown
+    id: sip
+    attributes:
+      label: System Integrity Protection(SIP)
+      options:
+        - 활성화됨
+        - 비활성화됨
+        - 잘 모르겠음
+    validations:
+      required: true
+
+  - type: dropdown
+    id: compatibility_result
+    attributes:
+      label: 호환성 결과
+      description: 일반 버그 보고라면 '해당 없음'을 선택해 주세요.
+      options:
+        - 해당 없음 — 버그 보고
+        - 정상 작동
+        - 일부 작동
+        - 작동하지 않음
+    validations:
+      required: true
+
+  - type: textarea
+    id: details
+    attributes:
+      label: 상세 내용
+      description: 버그 보고는 실제 동작과 기대한 동작을, 호환성 보고는 테스트 결과와 특이 사항을 적어 주세요.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 재현 단계
+      description: 재현 가능한 버그라면 가능한 한 작성해 주세요. 호환성 보고에서는 비워도 됩니다.
+      placeholder: |
+        1. TurboKiller 열기
+        2. ...
+        3. ...
+
+  - type: checkboxes
+    id: behavior
+    attributes:
+      label: 정상 작동한 항목
+      description: 주로 호환성 보고에 사용합니다.
+      options:
+        - label: 권한 있는 Helper가 정상적으로 설치됨
+        - label: 커널 확장이 승인되고 정상적으로 로드됨
+        - label: Turbo Boost를 비활성화할 수 있었음
+        - label: Turbo Boost를 다시 활성화할 수 있었음
+        - label: TurboKiller에 표시된 상태와 실제 상태가 일치했음
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 관련 로그 또는 스크린샷
+      description: 필요한 경우 관련 로그를 붙여 넣거나 스크린샷을 첨부해 주세요.
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: 제출 전 확인
+      options:
+        - label: 이 보고는 Intel Mac에 관한 것입니다.
+          required: true
+        - label: TurboKiller 공식 빌드 또는 이 저장소의 수정되지 않은 빌드를 테스트했습니다.
+          required: true
+        - label: 기존 Issue에 동일한 문제 또는 동일한 구성이 보고되어 있는지 확인했습니다.
+          required: true
