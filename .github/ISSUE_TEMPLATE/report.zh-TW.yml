@@ -1,0 +1,123 @@
+name: 回報 — 繁體中文
+description: 回報問題或提交相容性測試結果
+title: "[Report] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感謝你協助改進 TurboKiller。這個表單既可用於問題回報，也可用於相容性回報。
+
+  - type: dropdown
+    id: report_type
+    attributes:
+      label: 回報類型
+      options:
+        - 問題回報
+        - 相容性回報
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: TurboKiller 版本
+      placeholder: 例如 1.1.0
+    validations:
+      required: true
+
+  - type: input
+    id: mac
+    attributes:
+      label: Mac 型號
+      description: 如果知道，請填寫機型名稱或型號識別碼。
+      placeholder: 例如 MacBookPro16,1
+    validations:
+      required: true
+
+  - type: input
+    id: cpu
+    attributes:
+      label: CPU
+      placeholder: 例如 Intel Core i7-9750H
+    validations:
+      required: true
+
+  - type: input
+    id: macos
+    attributes:
+      label: macOS 版本
+      placeholder: 例如 macOS 15.7
+    validations:
+      required: true
+
+  - type: dropdown
+    id: sip
+    attributes:
+      label: 系統完整性保護（SIP）
+      options:
+        - 已開啟
+        - 已關閉
+        - 不確定
+    validations:
+      required: true
+
+  - type: dropdown
+    id: compatibility_result
+    attributes:
+      label: 相容性結果
+      description: 如果是一般問題回報，請選擇「不適用」。
+      options:
+        - 不適用 — 問題回報
+        - 完全正常
+        - 部分可用
+        - 無法使用
+    validations:
+      required: true
+
+  - type: textarea
+    id: details
+    attributes:
+      label: 詳細資訊
+      description: 問題回報請說明實際發生了什麼以及預期結果；相容性回報請描述測試結果和任何異常情況。
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 重現步驟
+      description: 可重現的問題請盡量填寫；相容性回報可留空。
+      placeholder: |
+        1. 開啟 TurboKiller
+        2. ...
+        3. ...
+
+  - type: checkboxes
+    id: behavior
+    attributes:
+      label: 哪些功能正常？
+      description: 主要用於相容性回報。
+      options:
+        - label: 特權 Helper 安裝成功
+        - label: 核心延伸模組已獲允許並成功載入
+        - label: 可以停用 Turbo Boost
+        - label: 可以重新啟用 Turbo Boost
+        - label: TurboKiller 顯示的狀態與實際狀態一致
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 相關日誌或截圖
+      description: 如有需要，請貼上相關日誌文字或附上截圖。
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: 提交前確認
+      options:
+        - label: 這份回報來自 Intel Mac。
+          required: true
+        - label: 我測試的是 TurboKiller 官方發行版，或本儲存庫未修改的建置版本。
+          required: true
+        - label: 我已檢查現有 Issue，沒有找到相同的問題或設定。
+          required: true
