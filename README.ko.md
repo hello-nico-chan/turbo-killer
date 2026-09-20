@@ -10,6 +10,8 @@
 
 TurboKiller는 호환되는 Intel Mac에서 Intel Turbo Boost를 제어하기 위한 무료 오픈 소스 macOS 메뉴 막대 유틸리티입니다.
 
+Turbo Boost를 비활성화해 CPU 온도와 팬 소음을 낮추고, 최대 성능이 필요할 때는 언제든 다시 활성화할 수 있습니다.
+
 > **현재 상태:** 현재 Legacy Kext 백엔드는 System Integrity Protection(SIP)이 활성화된 Intel Mac에서 동작이 확인되었습니다. 더 넓은 하드웨어 및 macOS 버전과의 호환성은 보장되지 않습니다.
 >
 > TurboKiller 본체와 권한이 있는 Helper는 Developer ID로 서명되어 있습니다. 다만 현재 릴리스에는 과거의 서명되지 않은 커널 확장이 포함되어 있으며, Apple 공증 서비스가 이 구성 요소를 거부하기 때문에 현재 릴리스는 Apple notarization을 완료할 수 없습니다.

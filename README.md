@@ -10,6 +10,8 @@
 
 TurboKiller is a free and open-source macOS menu bar utility for controlling Intel Turbo Boost on compatible Intel Macs.
 
+It lets you disable Turbo Boost to reduce CPU temperature and fan noise, then restore it whenever full performance is needed.
+
 > **Status:** The current legacy Kext backend has been validated on an Intel Mac with System Integrity Protection enabled. Broader hardware and macOS compatibility cannot be guaranteed.
 >
 > TurboKiller and its privileged helper are Developer ID signed. However, the current release is not Apple-notarized because it includes a historical unsigned kernel extension that Apple's notary service rejects.
