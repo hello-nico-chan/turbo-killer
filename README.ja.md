@@ -12,7 +12,9 @@ TurboKiller は、対応する Intel Mac 上で Intel Turbo Boost を制御す�
 
 Turbo Boost を無効にして CPU 温度やファンノイズを抑え、フルパフォーマンスが必要なときはいつでも元に戻せます。
 
-> **現在の状態:** 現在の Legacy Kext バックエンドは、System Integrity Protection（SIP）が有効な Intel Mac で動作確認されています。より広範なハードウェアおよび macOS バージョンでの互換性は保証されません。
+> **実験段階:** Legacy Kext バックエンドは、System Integrity Protection（SIP）が有効な 1 台の Intel Mac で読み込みに成功しました。一方、別の Intel Mac では `Bad code signature`（無効なコード署名）エラーが発生しており、互換性の違いを調査中です。他の Mac への初回インストールが成功することを示すものではありません。ハードウェアおよび macOS バージョンの互換性は保証されません。
+>
+> テストへの協力や診断情報の提供を歓迎します。問題を報告する際は、Mac のモデル、macOS のバージョン、エラー全文を添えてください。
 >
 > TurboKiller 本体と特権 Helper は Developer ID で署名されています。ただし、現在のリリースには歴史的な未署名のカーネル拡張が含まれており、Apple の公証サービスがこのコンポーネントを拒否するため、現在のリリースは Apple notarization を完了できません。
 
@@ -20,7 +22,7 @@ Turbo Boost を無効にして CPU 温度やファンノイズを抑え、フル
 
 - Intel Mac
 - macOS 13 以降
-- System Integrity Protection（SIP）を無効にする必要はありません
+- 読み込みに成功したテスト機では SIP が有効でした。他の Mac でも SIP が有効なまま動作する保証はありません
 
 ## 仕組み
 
@@ -55,7 +57,7 @@ root 権限で動作する Helper は次の処理を行います。
 
 カーネル拡張の承認後、一度再起動が必要になる場合があります。
 
-初回承認が完了した後は、通常の Turbo Boost の切り替えで管理者パスワードや再起動は必要ありません。
+互換性があり、Kext が承認されて正常に読み込めるシステムでは、通常の切り替え時に管理者パスワードや再起動を繰り返し要求しない設計です。バックグラウンド Helper の承認だけでは Kext の署名エラーは解決しません。
 
 ## セキュリティ
 

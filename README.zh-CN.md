@@ -12,7 +12,9 @@ TurboKiller 是一款免费、开源的 macOS 菜单栏工具，用于在兼容�
 
 它可以关闭 Turbo Boost 以降低 CPU 温度和风扇噪音，并在需要完整性能时随时恢复。
 
-> **当前状态：** 当前使用的 Legacy Kext 后端已经在一台开启系统完整性保护（SIP）的 Intel Mac 上验证可用。更广泛的硬件与 macOS 版本兼容性无法保证。
+> **实验阶段：** Legacy Kext 后端已在一台开启系统完整性保护（SIP）的 Intel Mac 上成功加载，但另一台 Intel Mac 出现了 `Bad code signature`（代码签名无效）错误，兼容性差异正在排查。这不代表在其他 Mac 上首次安装也能成功。暂不保证硬件与 macOS 版本兼容性。
+>
+> 欢迎协助测试和提交诊断信息。报告问题时，请提供 Mac 型号、macOS 版本和完整报错。
 >
 > TurboKiller 主程序和特权 Helper 均使用 Developer ID 签名。但由于当前版本包含一份历史遗留的未签名内核扩展，Apple 公证服务会拒绝该组件，因此当前版本无法完成 Apple notarization。
 
@@ -20,7 +22,7 @@ TurboKiller 是一款免费、开源的 macOS 菜单栏工具，用于在兼容�
 
 - Intel Mac
 - macOS 13 或更高版本
-- 无需关闭系统完整性保护（SIP）
+- 成功测试的机器开启了 SIP；暂不保证其他 Mac 在开启 SIP 时也能运行
 
 ## 工作原理
 
@@ -55,7 +57,7 @@ Turbo Boost 的当前状态通过 `kmutil` 查询实际加载的 Kext 状态确�
 
 批准内核扩展后，系统可能要求重启一次。
 
-完成首次批准后，日常关闭和恢复 Turbo Boost 不需要重复输入管理员密码，也不需要重启。
+在兼容且 Kext 已获批准、能够成功加载的系统上，日常切换的设计目标是不重复要求管理员密码或重启。仅批准后台 Helper 并不能解决 Kext 签名错误。
 
 ## 安全设计
 

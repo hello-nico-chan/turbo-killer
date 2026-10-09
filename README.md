@@ -12,7 +12,9 @@ TurboKiller is a free and open-source macOS menu bar utility for controlling Int
 
 It lets you disable Turbo Boost to reduce CPU temperature and fan noise, then restore it whenever full performance is needed.
 
-> **Status:** The current legacy Kext backend has been validated on an Intel Mac with System Integrity Protection enabled. Broader hardware and macOS compatibility cannot be guaranteed.
+> **Experimental status:** The legacy Kext backend has successfully loaded on one Intel Mac with System Integrity Protection (SIP) enabled. Another Intel Mac rejected it with `Bad code signature`; the compatibility difference is under investigation. This does not establish that a fresh installation will work on other Macs. Hardware and macOS compatibility are not guaranteed.
+>
+> Community testing and diagnostic reports are welcome. Please include your Mac model, macOS version, and the exact error when reporting an issue.
 >
 > TurboKiller and its privileged helper are Developer ID signed. However, the current release is not Apple-notarized because it includes a historical unsigned kernel extension that Apple's notary service rejects.
 
@@ -20,7 +22,7 @@ It lets you disable Turbo Boost to reduce CPU temperature and fan noise, then re
 
 - Intel Mac
 - macOS 13 or later
-- System Integrity Protection may remain enabled
+- SIP was enabled on the successful test machine; operation with SIP enabled is not guaranteed on other Macs
 
 ## How it works
 
@@ -55,7 +57,7 @@ After that, macOS may still separately ask you to approve:
 
 A restart may be required after approving the kernel extension.
 
-After the helper and Kext have been approved, normal Turbo Boost switching does not require an administrator password or a restart.
+On a compatible system where the Kext has been approved and can load, normal Turbo Boost switching is intended to work without repeated administrator password prompts or restarts. Approving the background helper alone does not resolve a Kext signature error.
 
 ## Security
 
